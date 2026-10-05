@@ -166,18 +166,22 @@ Each release will include SHA-256 checksums for verification.
 
 N7Miner supports multiple NVIDIA and AMD GPU architectures.
 
-Live-tested hardware currently includes, among others:
+Live-tested hardware and observed effective hashrate on N7Miner test rigs:
 
-- NVIDIA GeForce RTX 3070
-- NVIDIA GeForce RTX 3070 Laptop GPU
-- NVIDIA GeForce RTX 3070 Ti Laptop GPU
-- NVIDIA GeForce RTX 3080
-- NVIDIA GeForce RTX 3080 Ti
-- NVIDIA GeForce RTX 5080
-- NVIDIA CMP 90HX
-- AMD Radeon RX 5700 XT
-- AMD Radeon RX 6600M
-- AMD Radeon RX 6600 XT
+| GPU | Observed Eff HR |
+| --- | ---: |
+| NVIDIA GeForce RTX 5080 | ~239 TH/s |
+| NVIDIA GeForce RTX 3080 Ti | ~137 TH/s |
+| NVIDIA GeForce RTX 3080 | ~114–116 TH/s |
+| NVIDIA CMP 90HX | ~77.7 TH/s |
+| NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~73.7 TH/s |
+| NVIDIA GeForce RTX 3070 | ~73.3 TH/s |
+| NVIDIA GeForce RTX 3070 Laptop GPU | ~63–67 TH/s |
+| AMD Radeon RX 6600 XT | ~10.8 TH/s |
+| AMD Radeon RX 6600M | ~7.8 TH/s |
+| AMD Radeon RX 5700 XT | ~3.9 TH/s |
+
+> Results are observed values from tested hardware and depend on clocks, power limits, cooling, drivers and silicon quality.
 
 Additional NVIDIA architectures, CMP cards and datacenter GPUs are supported through architecture-specific paths.
 
