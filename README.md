@@ -168,10 +168,13 @@ N7Miner supports multiple NVIDIA and AMD GPU architectures.
 
 Live-tested hardware currently includes, among others:
 
+- NVIDIA GeForce RTX 3070
+- NVIDIA GeForce RTX 3070 Laptop GPU
+- NVIDIA GeForce RTX 3070 Ti Laptop GPU
 - NVIDIA GeForce RTX 3080
 - NVIDIA GeForce RTX 3080 Ti
-- NVIDIA GeForce RTX 3070 Laptop GPU
 - NVIDIA GeForce RTX 5080
+- NVIDIA CMP 90HX
 - AMD Radeon RX 5700 XT
 - AMD Radeon RX 6600M
 - AMD Radeon RX 6600 XT
