@@ -11,6 +11,12 @@ N7Miner is a GPU miner focused on high performance, efficiency, stable pool oper
 > N7Miner is distributed as prebuilt binaries.  
 > Source code is not publicly available.
 
+## Download v0.1.124-rc.1
+
+**[Windows x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-windows-x64.zip)** · **[Linux x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-linux-x64.tar.gz)** · **[HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz)**
+
+[Release page](https://github.com/Nigh7man/N7Miner-Releases/releases/tag/v0.1.124-rc.1) · [SHA-256 checksums](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/SHA256SUMS.txt)
+
 ---
 
 ## Preview
@@ -246,15 +252,14 @@ There is no subscription fee.
 
 ## Downloads
 
-Official builds will be published through **GitHub Releases**.
+Current release: **v0.1.124-rc.1**
 
-Planned packages:
+- [Windows x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-windows-x64.zip)
+- [Linux x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-linux-x64.tar.gz)
+- [HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz)
+- [SHA-256 checksums](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/SHA256SUMS.txt)
 
-- Windows x64
-- Linux x64
-- HiveOS
-
-Each release will include SHA-256 checksums for verification.
+All releases are available on the [Releases page](https://github.com/Nigh7man/N7Miner-Releases/releases).
 
 ---
 
