@@ -1,0 +1,24 @@
+{
+  "name": "N7Miner PRL - Kryptex",
+  "isFavorite": false,
+  "items": [
+    {
+      "coin": "PRL",
+      "dpool_ssl": false,
+      "miner": "custom",
+      "miner_alt": "n7miner",
+      "miner_config": {
+        "algo": "pearlhash",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz",
+        "miner": "n7miner",
+        "pass": "x",
+        "template": "%WAL%.%WORKER_NAME%",
+        "url": "prl.kryptex.network:7048",
+        "user_config": ""
+      },
+      "pool_geo": [],
+      "pool_ssl": false,
+      "wal_id": 0
+    }
+  ]
+}
