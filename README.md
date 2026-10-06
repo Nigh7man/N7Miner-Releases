@@ -94,6 +94,18 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --devices all --amd-devices all
 ```
 
+### HiveOS — import a Flight Sheet
+
+Ready-to-import Custom Miner Flight Sheets:
+
+- [Kryptex](hiveos/n7miner-kryptex.json)
+- [HeroMiners](hiveos/n7miner-herominers.json)
+- [LuckyPool](hiveos/n7miner-luckypool.json)
+
+Add your PRL wallet in HiveOS, open the desired JSON on GitHub, click **Raw**, copy the complete JSON, then use **Flight Sheets → Import** in HiveOS and paste it.
+
+The imported Custom Miner configuration downloads N7Miner directly from the official GitHub Release asset. See the [HiveOS guide](hiveos/README.md).
+
 ---
 
 ## Command Line Options
