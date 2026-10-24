@@ -1,7 +1,5 @@
 # N7Miner — HiveOS Setup
 
-> **Preview for N7Miner v0.1.128.** The installation URLs below target the release that is currently a GitHub Draft. They become usable after version v0.1.128 is published. Verify the pool endpoints before deployment.
-
 Use the Custom Miner package from the official [GitHub Releases](https://github.com/Nigh7man/N7Miner-Releases/releases).
 
 ## Flight Sheet
