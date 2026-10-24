@@ -94,18 +94,16 @@ The following are the **highest observed per-GPU miner-reported hashrates** from
 
 | GPU | Best observed hash rate |
 | --- | ---: |
-| NVIDIA GeForce RTX 5080 | **~251.6 TH/s** |
-| NVIDIA GeForce RTX 3080 Ti | **~151.3 TH/s** |
-| NVIDIA GeForce RTX 3080 | **~129.1 TH/s** |
-| NVIDIA CMP 90HX | **~95.2 TH/s** |
-| NVIDIA GeForce RTX 3070 | **~83.1 TH/s** |
-| NVIDIA GeForce RTX 3070 Ti Laptop GPU | **~79.0 TH/s** |
-| NVIDIA GeForce RTX 3070 Laptop GPU | **~70.7 TH/s** |
-| AMD Radeon RX 6600 XT | **~10.9 TH/s** |
-| AMD Radeon RX 6600M | **~7.9 TH/s** |
-| AMD Radeon RX 5700 XT | **~3.9 TH/s** |
-
-> **Test results, not release guarantees.** These figures come from development/test builds (mainly v0.1.127-prototype), not verified public v0.1.128 benchmarks. They are **miner-reported GPU hashrates, not pool-side effective hashrates**. Results vary with clocks, power, cooling, drivers, runtime and test duration. The public build includes a 2% developer fee, which may affect sustained performance.
+| NVIDIA GeForce RTX 5080 | **~261 TH/s** |
+| NVIDIA GeForce RTX 3080 Ti | **~152 TH/s** |
+| NVIDIA GeForce RTX 3080 | **~130 TH/s** |
+| NVIDIA CMP 90HX | **~99 TH/s** |
+| NVIDIA GeForce RTX 3070 | **~90 TH/s** |
+| NVIDIA GeForce RTX 3070 Ti Laptop GPU | **~81 TH/s** |
+| NVIDIA GeForce RTX 3070 Laptop GPU | **~71 TH/s** |
+| AMD Radeon RX 6600 XT | **~11 TH/s** |
+| AMD Radeon RX 6600M | **~8 TH/s** |
+| AMD Radeon RX 5700 XT | **~5 TH/s** |
 
 [Detailed GPU results, observed power and testing notes](docs/SUPPORTED-GPUS.md)
 
