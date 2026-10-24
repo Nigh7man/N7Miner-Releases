@@ -2,7 +2,7 @@
 
 N7Miner accepts command-line configuration for GPU selection, pool connections, logging and GPU clock controls.
 
-> **Preview documentation for v0.1.128.** Confirm options against the published version with `n7miner --help`.
+Confirm options against your installed version with `n7miner --help`.
 
 ## Command Line Options
 
