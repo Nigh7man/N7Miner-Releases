@@ -105,8 +105,6 @@ The following are the **highest observed per-GPU miner-reported hashrates** from
 | AMD Radeon RX 6600M | **~8 TH/s** |
 | AMD Radeon RX 5700 XT | **~5 TH/s** |
 
-[Detailed GPU results, observed power and testing notes](docs/SUPPORTED-GPUS.md)
-
 ## Developer Fee
 
 The public production build includes a **2% developer fee** to support ongoing development, kernel optimization, compatibility testing and maintenance.
