@@ -90,26 +90,24 @@ Use the N7Miner Custom Miner package. Create a PRL wallet, configure the pool an
 
 ## Tested GPUs & Hashrates
 
-N7Miner has been tested on NVIDIA GeForce, NVIDIA CMP and AMD Radeon GPUs. The table shows **observed pool-side effective hashrate (Eff HR)** on N7Miner test rigs.
+The following are the **highest observed per-GPU miner-reported hashrates** from running N7Miner test rigs. Each GPU model is shown once, using the best reading among the sampled machines.
 
-| GPU | Observed Eff HR |
+| GPU | Best observed hash rate |
 | --- | ---: |
-| NVIDIA GeForce RTX 5080 | ~239 TH/s |
-| NVIDIA GeForce RTX 3080 Ti | ~137 TH/s |
-| NVIDIA GeForce RTX 3080 | ~114–116 TH/s |
-| NVIDIA CMP 90HX | ~77.7 TH/s |
-| NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~73.7 TH/s |
-| NVIDIA GeForce RTX 3070 | ~73.3 TH/s |
-| NVIDIA GeForce RTX 3070 Laptop GPU | ~63–67 TH/s |
-| AMD Radeon RX 6600 XT | ~10.8 TH/s |
-| AMD Radeon RX 6600M | ~7.8 TH/s |
-| AMD Radeon RX 5700 XT | ~3.9 TH/s |
+| NVIDIA GeForce RTX 5080 | **~251.6 TH/s** |
+| NVIDIA GeForce RTX 3080 Ti | **~151.3 TH/s** |
+| NVIDIA GeForce RTX 3080 | **~129.1 TH/s** |
+| NVIDIA CMP 90HX | **~95.2 TH/s** |
+| NVIDIA GeForce RTX 3070 | **~83.1 TH/s** |
+| NVIDIA GeForce RTX 3070 Ti Laptop GPU | **~79.0 TH/s** |
+| NVIDIA GeForce RTX 3070 Laptop GPU | **~70.7 TH/s** |
+| AMD Radeon RX 6600 XT | **~10.9 TH/s** |
+| AMD Radeon RX 6600M | **~7.9 TH/s** |
+| AMD Radeon RX 5700 XT | **~3.9 TH/s** |
 
-> **Historical test results:** The numbers above were reported on earlier N7Miner builds and are **not verified benchmarks of v0.1.128**. Effective hashrate varies with drivers, clocks, power limits, cooling, silicon quality and pool conditions. They are not a controlled miner-to-miner comparison.
+> **Test results, not release guarantees.** These figures come from development/test builds (mainly v0.1.127-prototype), not verified public v0.1.128 benchmarks. They are **miner-reported GPU hashrates, not pool-side effective hashrates**. Results vary with clocks, power, cooling, drivers, runtime and test duration. The public build includes a 2% developer fee, which may affect sustained performance.
 
-Additional compatible GPUs may operate through supported architecture-specific paths.
-
-[Full GPU compatibility and benchmarking notes](docs/SUPPORTED-GPUS.md)
+[Detailed GPU results, observed power and testing notes](docs/SUPPORTED-GPUS.md)
 
 ## Developer Fee
 
