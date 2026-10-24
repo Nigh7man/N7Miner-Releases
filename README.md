@@ -88,22 +88,28 @@ Use the N7Miner Custom Miner package. Create a PRL wallet, configure the pool an
 
 **[Command-line options, clock control, diagnostics and failover →](docs/CLI.md)**
 
-## GPU Compatibility
+## Tested GPUs & Hashrates
 
-N7Miner supports multiple NVIDIA and AMD GPU architectures. GPUs tested on N7Miner development rigs include:
+N7Miner has been tested on NVIDIA GeForce, NVIDIA CMP and AMD Radeon GPUs. The table shows **observed pool-side effective hashrate (Eff HR)** on N7Miner test rigs.
 
-| NVIDIA | AMD |
-| --- | --- |
-| GeForce RTX 5080 | Radeon RX 5700 XT |
-| GeForce RTX 3080 Ti | Radeon RX 6600 XT |
-| GeForce RTX 3080 | Radeon RX 6600M |
-| GeForce RTX 3070 / 3070 Laptop GPU | |
-| GeForce RTX 3070 Ti Laptop GPU | |
-| CMP 90HX | |
+| GPU | Observed Eff HR |
+| --- | ---: |
+| NVIDIA GeForce RTX 5080 | ~239 TH/s |
+| NVIDIA GeForce RTX 3080 Ti | ~137 TH/s |
+| NVIDIA GeForce RTX 3080 | ~114–116 TH/s |
+| NVIDIA CMP 90HX | ~77.7 TH/s |
+| NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~73.7 TH/s |
+| NVIDIA GeForce RTX 3070 | ~73.3 TH/s |
+| NVIDIA GeForce RTX 3070 Laptop GPU | ~63–67 TH/s |
+| AMD Radeon RX 6600 XT | ~10.8 TH/s |
+| AMD Radeon RX 6600M | ~7.8 TH/s |
+| AMD Radeon RX 5700 XT | ~3.9 TH/s |
 
-Further compatible models may operate using supported architecture paths. Actual performance varies with drivers, power limits, clocks, cooling and individual GPUs.
+> **Historical test results:** The numbers above were reported on earlier N7Miner builds and are **not verified benchmarks of v0.1.128**. Effective hashrate varies with drivers, clocks, power limits, cooling, silicon quality and pool conditions. They are not a controlled miner-to-miner comparison.
 
-**[Supported GPUs and historical test results →](docs/SUPPORTED-GPUS.md)**
+Additional compatible GPUs may operate through supported architecture-specific paths.
+
+[Full GPU compatibility and benchmarking notes](docs/SUPPORTED-GPUS.md)
 
 ## Developer Fee
 
