@@ -46,13 +46,13 @@ N7Miner is a purpose-built PearlHash miner focused on sustained performance, pow
 
 ## Interface Preview
 
-![N7Miner interactive TUI](docs/images/n7miner-tui.png)
+![N7Miner RTX 5080 interactive TUI](docs/images/n7miner-rtx5080-tui.jpg)
 
 **Note:** Pool-side effective hashrate (`Eff HR`) needs approximately **10–15 minutes** of continuous mining to become representative.
 
 ### Console mode
 
-![N7Miner console](docs/images/n7miner-console.png)
+![N7Miner 3x RTX 3070 Laptop console](docs/images/n7miner-3x3070l-console.png)
 
 To run without the interactive dashboard:
 
