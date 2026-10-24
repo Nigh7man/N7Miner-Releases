@@ -1,349 +1,149 @@
 # N7Miner
 
-**High-performance PearlHash GPU miner for NVIDIA and AMD GPUs**
+**PearlHash GPU miner for NVIDIA and AMD**
 
-N7Miner is a GPU miner focused on high performance, efficiency, stable pool operation and practical multi-GPU mining.
+N7Miner is a purpose-built PearlHash miner focused on sustained performance, power efficiency and reliable pool mining. It supports individual GPUs, multi-GPU systems and mixed NVIDIA + AMD mining rigs.
 
-**Windows · Linux · HiveOS**  
-**NVIDIA + AMD**  
-**Developer fee: 2%**
+**Windows x64 · Linux x64 · HiveOS**  
+**NVIDIA + AMD · Multi-GPU · 2% developer fee**
 
-> N7Miner is distributed as prebuilt binaries.  
-> Source code is not publicly available.
+[**Download latest public release**](https://github.com/Nigh7man/N7Miner-Releases/releases/latest) · [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Report an issue](https://github.com/Nigh7man/N7Miner-Releases/issues)
 
-## Download v0.1.124-rc.1
+> **v0.1.128 preview:** This README is prepared for the upcoming v0.1.128 release. The release is currently a draft, so its download links will only work after publication. The latest public version remains v0.1.124-rc.1.
 
-**[Windows x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-windows-x64.zip)** · **[Linux x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-linux-x64.tar.gz)** · **[HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz)**
+## Download v0.1.128
 
-[Release page](https://github.com/Nigh7man/N7Miner-Releases/releases/tag/v0.1.124-rc.1) · [SHA-256 checksums](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/SHA256SUMS.txt)
+| Platform | Package |
+| --- | --- |
+| Windows x64 | [N7Miner-v0.1.128-universal-windows-x64.zip](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/N7Miner-v0.1.128-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner-v0.1.128-universal-linux-x64.tar.gz](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/N7Miner-v0.1.128-universal-linux-x64.tar.gz) |
+| HiveOS | [n7miner-0.1.128_universal_hive_x64.tar.gz](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/n7miner-0.1.128_universal_hive_x64.tar.gz) |
 
----
+**Always download binaries from the official N7Miner Releases repository.** SHA-256 checksums are provided with each release for verifying downloads.
 
-## Preview
+## Why N7Miner?
 
-![N7Miner TUI](docs/images/n7miner-tui.png)
+### Performance & efficiency
 
-> **Note:** `Eff HR` needs approximately **10–15 minutes** of continuous mining to reach a representative value.
+- PearlHash-specific mining kernels with GPU architecture-aware execution paths.
+- Support for NVIDIA and AMD GPUs in the same rig.
+- Per-GPU monitoring and flexible hardware selection.
+- Performance optimization focused on sustained mining workloads.
+
+### Real-world monitoring
+
+- Interactive terminal interface (TUI).
+- Lightweight scrolling console mode for remote/headless systems.
+- Per-GPU hashrate and hardware telemetry.
+- Effective pool hashrate and session-effort statistics.
+- Accepted, rejected and stale share counts.
+
+### Reliability & control
+
+- Priority-ordered pool failover.
+- GPU core and memory clock configuration, including per-GPU values.
+- Optional restoration of miner-applied GPU clocks on exit.
+- Built-in integrity and connectivity self-check options.
+- Universal packages for Windows, Linux and HiveOS.
+
+## Interface Preview
+
+![N7Miner interactive TUI](docs/images/n7miner-tui.png)
+
+**Note:** Pool-side effective hashrate (`Eff HR`) needs approximately **10–15 minutes** of continuous mining to become representative.
 
 ### Console mode
 
-![N7Miner console mode](docs/images/n7miner-console.png)
+![N7Miner console](docs/images/n7miner-console.png)
 
-Use:
+To run without the interactive dashboard:
 
-```bash
---notui
-```
-
-Example:
-
-```bash
+~~~bash
 n7miner --notui --log-interval 180
-```
-
----
-
-## Features
-
-- PearlHash mining
-- NVIDIA and AMD GPU support
-- mixed NVIDIA + AMD rigs
-- multi-GPU mining
-- Windows, Linux and HiveOS
-- interactive TUI
-- lightweight scrolling console mode
-- automatic GPU/runtime selection
-- per-GPU hashrate and telemetry
-- pool hashrate tracking
-- session effort tracking
-- pool failover support
-- GPU core and memory clock control
-- per-GPU clock values
-- clock restoration on miner exit
-- accepted / rejected / stale share tracking
-- built-in production self-check
-- 2% developer fee
-
----
+~~~
 
 ## Quick Start
 
 ### Windows
 
-Download the latest Windows package from **GitHub Releases**, extract it and start N7Miner with your pool and wallet.
+Download the Windows ZIP archive, extract it, and launch a bundled pool starter after replacing the wallet placeholder, or use the CLI:
 
-```bat
-n7miner.exe ^
-  -a pearlhash ^
-  -o prl-ru.kryptex.network:7048 ^
-  -u YOUR_WALLET ^
-  -w rig01 ^
-  -p x ^
-  -d auto
-```
-
-Single-line form:
-
-```bat
+~~~bat
 n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 -p x -d auto
-```
+~~~
 
-### Console mode
+Replace `YOUR_WALLET` with your Pearl wallet address. Adjust `rig01` to your preferred worker name.
 
-```bat
-n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 -d auto --notui
-```
+### Mixed NVIDIA + AMD rig
 
-### NVIDIA + AMD mixed rig
-
-```bat
+~~~bat
 n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --devices all --amd-devices all
-```
+~~~
 
-### HiveOS — Flight Sheet
+### HiveOS
 
-1. Add your **PRL wallet** in HiveOS.
-2. Copy the JSON for your pool below.
-3. Open **Flight Sheets → Import from Clipboard**, paste it and import.
-4. Select/confirm your PRL wallet and apply the Flight Sheet.
+Use the N7Miner Custom Miner package. Create a PRL wallet, configure the pool and miner in a Flight Sheet, then apply it to your rig.
 
-The miner is downloaded directly from the official N7Miner GitHub Release.
+**[HiveOS setup and importable Flight Sheets →](docs/HIVEOS.md)**
 
-#### Kryptex
+### Advanced configuration
 
-```json
-{
-  "name": "N7Miner PRL - Kryptex",
-  "isFavorite": false,
-  "items": [
-    {
-      "coin": "PRL",
-      "pool_ssl": false,
-      "wal_id": 0,
-      "dpool_ssl": false,
-      "miner": "custom",
-      "miner_alt": "n7miner",
-      "miner_config": {
-        "url": "prl.kryptex.network:7048",
-        "algo": "pearlhash",
-        "pass": "x",
-        "miner": "n7miner",
-        "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz",
-        "user_config": ""
-      },
-      "pool_geo": []
-    }
-  ]
-}
-```
+**[Command-line options, clock control, diagnostics and failover →](docs/CLI.md)**
 
-#### HeroMiners
+## GPU Compatibility
 
-```json
-{
-  "name": "N7Miner PRL - HeroMiners",
-  "isFavorite": false,
-  "items": [
-    {
-      "coin": "PRL",
-      "pool_ssl": false,
-      "wal_id": 0,
-      "dpool_ssl": false,
-      "miner": "custom",
-      "miner_alt": "n7miner",
-      "miner_config": {
-        "url": "de.pearl.gfwroute.com:1200",
-        "algo": "pearlhash",
-        "pass": "x",
-        "miner": "n7miner",
-        "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz",
-        "user_config": ""
-      },
-      "pool_geo": []
-    }
-  ]
-}
-```
+N7Miner supports multiple NVIDIA and AMD GPU architectures. GPUs tested on N7Miner development rigs include:
 
-#### LuckyPool
-
-```json
-{
-  "name": "N7Miner PRL - LuckyPool",
-  "isFavorite": false,
-  "items": [
-    {
-      "coin": "PRL",
-      "pool_ssl": false,
-      "wal_id": 0,
-      "dpool_ssl": false,
-      "miner": "custom",
-      "miner_alt": "n7miner",
-      "miner_config": {
-        "url": "pearl-eu2.luckypool.io:3360",
-        "algo": "pearlhash",
-        "pass": "x",
-        "miner": "n7miner",
-        "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz",
-        "user_config": ""
-      },
-      "pool_geo": []
-    }
-  ]
-}
-```
-
----
-
-## Command Line Options
-
-Common options:
-
-| Option | Short | Description |
-| --- | --- | --- |
-| `--pool` | `-o` | Pool endpoint or comma-separated failover list |
-| `--wallet` | `-u` | Pool wallet/account |
-| `--worker` | `-w` | Worker name |
-| `--pass` | `-p` | Pool password |
-| `--devices` | `-d` | NVIDIA devices: index list, `auto` or `all` |
-| `--amd-devices` |  | AMD devices: index list, `auto` or `all` |
-| `--algo` | `-a` | Mining algorithm |
-| `--notui` |  | Scrolling console mode |
-| `--log-interval` |  | Console statistics interval |
-| `--no-color` |  | Disable console colors |
-
-GPU clock control:
-
-| Option | Description |
+| NVIDIA | AMD |
 | --- | --- |
-| `--cclock` | Lock core clock |
-| `--mclock` | Lock memory clock |
-| `--coffset` | Core clock offset |
-| `--moffset` | Memory clock offset |
-| `--restore-cclock` | Core clock baseline to restore on exit |
-| `--restore-mclock` | Memory clock baseline to restore on exit |
-| `--reset-oc` | Restore clock settings when the miner exits |
-| `--no-reset-oc` | Keep miner-applied clocks after exit |
+| GeForce RTX 5080 | Radeon RX 5700 XT |
+| GeForce RTX 3080 Ti | Radeon RX 6600 XT |
+| GeForce RTX 3080 | Radeon RX 6600M |
+| GeForce RTX 3070 / 3070 Laptop GPU | |
+| GeForce RTX 3070 Ti Laptop GPU | |
+| CMP 90HX | |
 
-Diagnostic / maintenance options:
+Further compatible models may operate using supported architecture paths. Actual performance varies with drivers, power limits, clocks, cooling and individual GPUs.
 
-| Option | Description |
-| --- | --- |
-| `--self-check` | Verify production startup integrity without starting GPU workers |
-| `--self-check-network` | Check production service connectivity without mining |
-| `--no-submit` | Search normally but do not submit shares |
-| `--help` | Show command-line help |
-| `--version` | Show N7Miner version |
-
----
+**[Supported GPUs and historical test results →](docs/SUPPORTED-GPUS.md)**
 
 ## Developer Fee
 
-The public production build includes a **2% developer fee**.
-
-The fee supports continued development, performance optimization, compatibility work and maintenance.
+The public production build includes a **2% developer fee** to support ongoing development, kernel optimization, compatibility testing and maintenance.
 
 There is no subscription fee.
 
----
+## Verification & Diagnostics
 
-## Downloads
+- `--self-check` — verify production startup integrity without starting GPU workers.
+- `--self-check-network` — check production service connectivity without mining.
+- `--no-submit` — run a non-submitting test.
+- `--help` / `--version` — list available options and print the installed version.
 
-Current release: **v0.1.124-rc.1**
+Verify release downloads against the included `SHA256SUMS.txt` before use.
 
-- [Windows x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-windows-x64.zip)
-- [Linux x64](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/N7Miner-v0.1.124-rc.1-universal-linux-x64.tar.gz)
-- [HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/n7miner-0.1.124_rc.1_universal_hive_x64.tar.gz)
-- [SHA-256 checksums](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.124-rc.1/SHA256SUMS.txt)
+### Verify on Windows
 
-All releases are available on the [Releases page](https://github.com/Nigh7man/N7Miner-Releases/releases).
-
----
-
-## Supported Hardware
-
-N7Miner supports multiple NVIDIA and AMD GPU architectures.
-
-Live-tested hardware and observed effective hashrate on N7Miner test rigs:
-
-| GPU | Observed Eff HR |
-| --- | ---: |
-| NVIDIA GeForce RTX 5080 | ~239 TH/s |
-| NVIDIA GeForce RTX 3080 Ti | ~137 TH/s |
-| NVIDIA GeForce RTX 3080 | ~114–116 TH/s |
-| NVIDIA CMP 90HX | ~77.7 TH/s |
-| NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~73.7 TH/s |
-| NVIDIA GeForce RTX 3070 | ~73.3 TH/s |
-| NVIDIA GeForce RTX 3070 Laptop GPU | ~63–67 TH/s |
-| AMD Radeon RX 6600 XT | ~10.8 TH/s |
-| AMD Radeon RX 6600M | ~7.8 TH/s |
-| AMD Radeon RX 5700 XT | ~3.9 TH/s |
-
-> Results are observed values from tested hardware and depend on clocks, power limits, cooling, drivers and silicon quality.
-
-Additional NVIDIA architectures, CMP cards and datacenter GPUs are supported through architecture-specific paths.
-
-A detailed compatibility table will be maintained in:
-
-`docs/SUPPORTED-GPUS.md`
-
----
-
-## Pool Failover
-
-Multiple pools can be supplied in priority order:
-
-```bash
---pool primary.pool:7048,fallback1.pool:7048,fallback2.pool:7048
-```
-
-N7Miner automatically attempts the configured fallback endpoints when necessary.
-
----
-
-## Release Verification
-
-Windows:
-
-```powershell
+~~~powershell
 Get-FileHash .\n7miner.exe -Algorithm SHA256
-```
+~~~
 
-Linux:
+### Verify on Linux
 
-```bash
+~~~bash
 sha256sum ./n7miner
-```
+~~~
 
-Compare the result with the checksum published in the corresponding GitHub Release.
+## Feedback & Issues
 
-Only download N7Miner from the official repository or locations explicitly linked from it.
+Please [open an issue](https://github.com/Nigh7man/N7Miner-Releases/issues) with the miner version, operating system, GPU model(s), driver version, pool, relevant command-line options and a reproducible log excerpt.
 
----
+**Never include private keys, passwords or other credentials in issue reports.**
 
-## Reporting Issues
+## Distribution
 
-When reporting a problem, please include:
-
-- N7Miner version
-- operating system
-- GPU model(s)
-- GPU driver version
-- pool
-- relevant command-line options
-- relevant console output
-
-Do not include private keys, passwords or other credentials.
+N7Miner is proprietary software distributed as prebuilt binaries. Its source code is maintained privately.
 
 ---
 
-## License
-
-N7Miner is distributed as proprietary software.
-
-The source code is maintained privately.
-
-Full license terms will be published with the first public release.
+**N7Miner — Built for PearlHash. Focused on performance.**
