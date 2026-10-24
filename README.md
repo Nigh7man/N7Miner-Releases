@@ -9,8 +9,6 @@ N7Miner is a purpose-built PearlHash miner focused on sustained performance, pow
 
 [**Download latest public release**](https://github.com/Nigh7man/N7Miner-Releases/releases/latest) · [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Report an issue](https://github.com/Nigh7man/N7Miner-Releases/issues)
 
-> **v0.1.128 preview:** This README is prepared for the upcoming v0.1.128 release. The release is currently a draft, so its download links will only work after publication. The latest public version remains v0.1.124-rc.1.
-
 ## Download v0.1.128
 
 | Platform | Package |
@@ -125,13 +123,13 @@ Verify release downloads against the included `SHA256SUMS.txt` before use.
 ### Verify on Windows
 
 ~~~powershell
-Get-FileHash .\n7miner.exe -Algorithm SHA256
+Get-FileHash .\N7Miner-v0.1.128-universal-windows-x64.zip -Algorithm SHA256
 ~~~
 
 ### Verify on Linux
 
 ~~~bash
-sha256sum ./n7miner
+sha256sum N7Miner-v0.1.128-universal-linux-x64.tar.gz
 ~~~
 
 ## Feedback & Issues
