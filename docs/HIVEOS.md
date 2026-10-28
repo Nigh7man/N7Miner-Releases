@@ -31,7 +31,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/n7miner-0.1.128_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -60,7 +60,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/n7miner-0.1.128_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -89,7 +89,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.128/n7miner-0.1.128_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
