@@ -44,6 +44,26 @@ Diagnostic / maintenance options:
 | `--help` | Show command-line help |
 | `--version` | Show N7Miner version |
 
+## AutoOC (NVIDIA)
+
+AutoOC automatically tunes a stable NVIDIA GPU core offset while mining. A locked core clock is required; AMD GPUs and memory offsets are not tuned.
+
+| Option | What it does |
+| --- | --- |
+| `--autooc` | Enable automatic GPU core offset tuning. |
+| `--autooc-max 300` | Set the maximum offset in MHz (default: initial offset +150 MHz). |
+| `--autooc-warmup 3` | Set startup warm-up duration in minutes (default 3; range 0–60). |
+| `--autooc-reset` | Reset saved tuning once for all GPUs. |
+| `--autooc-reset 0,2` | Reset only the selected GPUs. |
+
+Use `--cclock` to lock the core clock and `--coffset` to set the starting offset. **For PearlHash (PRL), locking memory to 810 MHz with `--mclock 810` is recommended for better power efficiency** on supported GPUs. AutoOC itself only tunes the core offset:
+
+~~~bat
+n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --cclock 1800 --coffset 150 --mclock 810 --autooc
+~~~
+
+**[Full AutoOC guide (English)](AUTOOC.en.md)** · **[Инструкция AutoOC на русском](AUTOOC.md)**
+
 ## Examples
 
 ### Single pool (Windows)

@@ -4,28 +4,26 @@
 
 N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and HiveOS, whether you have a single card, a multi-GPU rig or a mix of NVIDIA and AMD.
 
-**Windows x64 · Linux x64 · HiveOS · Developer fee in 0.1.129: 1%**
+**Windows x64 · Linux x64 · HiveOS · Developer fee: 1%**
 
+## What's new in 0.1.130
 
-## What's changed in 0.1.129
-
-- **Developer fee reduced from 2% to 1%.**
-- Small hashrate improvements.
-- Bug fixes.
+- **AutoOC:** automatic tuning of a stable Core Clock Offset for NVIDIA GPUs. [Setup guide](docs/AUTOOC.en.md).
+- Minor bug fixes.
 
 ## Download
 
 | Platform | Package |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.129 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/N7Miner-v0.1.129-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.129 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/N7Miner-v0.1.129-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.129 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.130 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/N7Miner-v0.1.130-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.130 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/N7Miner-v0.1.130-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.130 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/n7miner-0.1.130_universal_hive_x64.tar.gz) |
 
-[All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest public release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
+[All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
-Download only from this repository. Each release includes a `SHA256SUMS.txt` file so you can check the archives.
+Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/SHA256SUMS.txt).
 
-## Features
+# Features
 
 - Runs NVIDIA and AMD GPUs together in one rig.
 - Shows hashrate, temperature, power draw and share counts for each GPU.
@@ -34,11 +32,23 @@ Download only from this repository. Each release includes a `SHA256SUMS.txt` fil
 - Offers GPU core and memory clock settings, including per-GPU settings and optional reset on exit.
 - Includes startup and network checks.
 
+## AutoOC
+
+The new `--autooc` option tunes the NVIDIA GPU core offset while the core clock is locked. Each GPU is tuned independently: the miner raises the offset in small steps, falls back on faults and saves the result.
+
+On HiveOS, set **Lock Core Clock** and a starting **Core Clock**, then add `--autooc` under `Extra config arguments`. On Windows, use `--cclock`, `--coffset` and `--autooc`.
+
+**For PRL, we recommend locking GPU memory to 810 MHz for better power efficiency** on supported cards.
+
+**[AutoOC guide in English: setup, tuning stages, status icons, faults and reset](docs/AUTOOC.en.md)**
+
 ## Screenshots
 
 ### TUI
 
 ![N7Miner 0.1.129 — TUI, RTX 5080](docs/images/n7miner-rtx5080-tui-0.1.129.png)
+
+*Screenshot from the previous version (0.1.129). AutoOC UI indicators are explained in the separate guide.*
 
 Give `Eff HR` around 10–15 minutes of mining before relying on the number.
 
@@ -97,19 +107,11 @@ Results depend on the card, clock settings, power, cooling and drivers.
 
 ## Verify your download
 
-Compare the archive's SHA-256 hash with `SHA256SUMS.txt` from the release.
+Compare the downloaded archive's SHA-256 with `SHA256SUMS.txt` in the matching release. Replace the placeholder with the filename you downloaded:
 
-**Windows:**
+**Windows:** `Get-FileHash .\N7Miner-v0.1.130-universal-windows-x64.zip -Algorithm SHA256`
 
-~~~powershell
-Get-FileHash .\N7Miner-v0.1.129-universal-windows-x64.zip -Algorithm SHA256
-~~~
-
-**Linux:**
-
-~~~bash
-sha256sum N7Miner-v0.1.129-universal-linux-x64.tar.gz
-~~~
+**Linux:** `sha256sum N7Miner-v0.1.130-universal-linux-x64.tar.gz`
 
 Having trouble? [Open an issue](https://github.com/Nigh7man/N7Miner-Releases/issues) with the version, GPU, driver, pool and relevant log output. Don't post passwords or private keys.
 

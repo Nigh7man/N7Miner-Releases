@@ -4,28 +4,26 @@
 
 N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Работает на Windows, Linux и HiveOS. Можно запустить одну карту, целую ферму или вместе использовать NVIDIA и AMD.
 
-**Windows x64 · Linux x64 · HiveOS · Комиссия в 0.1.129 — 1%**
+**Windows x64 · Linux x64 · HiveOS · Комиссия разработчика 1%**
 
+## Что изменилось в 0.1.130
 
-## Что изменилось в 0.1.129
-
-- **Комиссия разработчика снижена с 2% до 1%.**
-- Небольшое увеличение хэшрейта.
-- Исправления ошибок.
+- **AutoOC** — автоматический подбор стабильного Core Clock Offset для видеокарт NVIDIA. [Как включить и настроить](docs/AUTOOC.md).
+- Мелкие исправления ошибок.
 
 ## Скачать
 
 | Система | Архив |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.129 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/N7Miner-v0.1.129-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.129 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/N7Miner-v0.1.129-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.129 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.130 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/N7Miner-v0.1.130-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.130 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/N7Miner-v0.1.130-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.130 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/n7miner-0.1.130_universal_hive_x64.tar.gz) |
 
-[Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний опубликованный релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
+[Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
-Скачивайте архивы из этого репозитория. Контрольные суммы лежат в `SHA256SUMS.txt` рядом с файлами релиза.
+Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/SHA256SUMS.txt).
 
-## Что умеет N7Miner
+# Что умеет N7Miner
 
 - Работает с NVIDIA и AMD, в том числе в одной ферме.
 - Показывает хэшрейт, температуру, потребление и статистику шар по каждой карте.
@@ -34,11 +32,23 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 - Позволяет задавать частоты ядра и памяти, включая настройки для отдельных GPU, и восстанавливать их при выходе.
 - Есть команды для проверки запуска и сетевого подключения.
 
+## AutoOC
+
+Новый режим `--autooc` сам подбирает offset ядра NVIDIA при залоченной частоте. Карты настраиваются по отдельности: майнер повышает offset небольшими шагами, откатывает его при ошибках и сохраняет найденные значения.
+
+Для запуска в HiveOS укажите **Lock Core Clock** и стартовый **Core Clock**, затем добавьте `--autooc` в `Extra config arguments`. В Windows используйте `--cclock`, `--coffset` и `--autooc`.
+
+**Для PRL рекомендуем фиксировать частоту памяти на 810 МГц для лучшей энергоэффективности** (если карта поддерживает такую настройку).
+
+**[Инструкция AutoOC на русском: настройка, этапы подбора, значки, ошибки и сброс](docs/AUTOOC.md)**
+
 ## Как выглядит
 
 ### Режим TUI
 
 ![N7Miner 0.1.129 — TUI, RTX 5080](docs/images/n7miner-rtx5080-tui-0.1.129.png)
+
+*Скриншот предыдущей версии (0.1.129). Обозначения AutoOC приведены в отдельной инструкции.*
 
 Для корректного значения `Eff HR` дайте майнеру поработать хотя бы 10–15 минут.
 
@@ -97,19 +107,11 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 ## Проверка скачанных файлов
 
-Сравните SHA-256 архива с файлом `SHA256SUMS.txt` из релиза.
+Сверьте SHA-256 скачанного архива с `SHA256SUMS.txt` из релиза. Команды для проверки (подставьте имя скачанного файла):
 
-**Windows:**
+**Windows:** `Get-FileHash .\N7Miner-v0.1.130-universal-windows-x64.zip -Algorithm SHA256`
 
-~~~powershell
-Get-FileHash .\N7Miner-v0.1.129-universal-windows-x64.zip -Algorithm SHA256
-~~~
-
-**Linux:**
-
-~~~bash
-sha256sum N7Miner-v0.1.129-universal-linux-x64.tar.gz
-~~~
+**Linux:** `sha256sum N7Miner-v0.1.130-universal-linux-x64.tar.gz`
 
 Если майнер работает неправильно, [создайте Issue](https://github.com/Nigh7man/N7Miner-Releases/issues). Напишите версию, модель GPU, драйвер, пул и приложите нужный фрагмент лога. Не публикуйте пароли и приватные ключи.
 

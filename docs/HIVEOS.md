@@ -2,6 +2,12 @@
 
 Use the Custom Miner package from the official [GitHub Releases](https://github.com/Nigh7man/N7Miner-Releases/releases).
 
+## AutoOC in v0.1.130
+
+To use NVIDIA AutoOC, set the GPU's **Lock Core Clock** and starting **Core Clock** offset in HiveOS. **For PearlHash (PRL), we recommend Lock Memory Clock = 810 MHz for better power efficiency** on supported GPUs. Add `--autooc` to the miner's **Extra config arguments**, apply the Flight Sheet and restart the miner. AutoOC only tunes the core offset.
+
+**[AutoOC guide (English)](AUTOOC.en.md)** · **[Инструкция AutoOC (русский)](AUTOOC.md)**
+
 ## Flight Sheet
 
 1. Add your **PRL wallet** in HiveOS.
@@ -31,7 +37,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/n7miner-0.1.130_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -60,7 +66,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/n7miner-0.1.130_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -89,7 +95,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.129/n7miner-0.1.129_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/n7miner-0.1.130_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
