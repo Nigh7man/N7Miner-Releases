@@ -21,6 +21,8 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 
 [Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
+**Новости и обновления:** [Telegram-канал N7Miner](https://t.me/N7Miner).
+
 Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/SHA256SUMS.txt).
 
 # Что умеет N7Miner

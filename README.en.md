@@ -21,6 +21,8 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 
 [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
+**News and updates:** [N7Miner Telegram channel](https://t.me/N7Miner).
+
 Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.130/SHA256SUMS.txt).
 
 # Features
