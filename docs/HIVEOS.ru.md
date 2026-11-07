@@ -12,7 +12,13 @@
 
 ## GeForce RTX — экспериментальный лок памяти 405 МГц
 
-Для совместимых **GeForce RTX 20/30/40/50** на драйверах NVIDIA **`595.91.07`** или **`610.43.03`** добавьте в **Flight Sheet → Extra config arguments**:
+Для совместимых **GeForce RTX 20/30/40/50** режим 405 МГц проверен с драйвером NVIDIA **`610.43.03`**. В HiveOS его можно установить или обновить командой:
+
+```bash
+nvidia-driver-update 610.43.03
+```
+
+После обновления драйвера добавьте в **Flight Sheet → Extra config arguments**:
 
 ```text
 --mclock 405

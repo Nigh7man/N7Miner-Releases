@@ -12,7 +12,13 @@ To use NVIDIA AutoOC, set the GPU's **Lock Core Clock** and starting **Core Cloc
 
 ## GeForce RTX 405 MHz memory clock (experimental)
 
-On supported **RTX 20/30/40/50-series** GPUs and NVIDIA drivers **`595.91.07`** or **`610.43.03`**, set `--mclock 405` in **Flight Sheet → Extra config arguments** for experimental low-memory-clock operation. This requires **root**. To use it with `--autooc`, first configure a **locked core clock**. Not all GPU/driver combinations are compatible.
+The experimental 405 MHz memory-clock mode has been tested with NVIDIA driver **`610.43.03`** on compatible **RTX 20/30/40/50-series** GPUs. On HiveOS, install or update the driver using:
+
+```bash
+nvidia-driver-update 610.43.03
+```
+
+Then add `--mclock 405` under **Flight Sheet → Extra config arguments**. This requires **root**. To use it with `--autooc`, first configure a **locked core clock**. Compatibility depends on the GPU and rig.
 
 [Command line reference and requirements](CLI.md)
 

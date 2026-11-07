@@ -80,7 +80,7 @@ Unlock is off by default. On Ubuntu 24.04/26.04, use the separate `n7miner-cmp.p
 
 ## GeForce RTX 405 MHz memory clock (experimental, Linux/HiveOS)
 
-For compatible **GeForce RTX 20, 30, 40 and 50 series** cards with NVIDIA driver **`595.91.07`** or **`610.43.03`**, N7Miner 0.1.133 offers an experimental low-memory-clock mode. Run as **root** and add `--mclock 405` to the miner arguments. When using `--autooc`, configure a **locked core clock** first. If the GPU or driver is unsupported, do not use this mode.
+The experimental `--mclock 405` mode has been tested with NVIDIA driver **`610.43.03`** on compatible **GeForce RTX 20/30/40/50-series** GPUs. On HiveOS, install or update this driver with `nvidia-driver-update 610.43.03`. Run as **root**. When using `--autooc`, configure a **locked core clock** first. Compatibility still depends on the GPU and rig.
 
 ## Separate status relay
 

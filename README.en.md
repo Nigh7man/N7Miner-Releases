@@ -10,7 +10,7 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 
 - **CMP (HiveOS):** experimental compute unlock for compatible CMP GPUs. Check, enable or restore directly from the miner settings. [Setup guide](docs/CMP-HIVEOS.en.md).
 - **CMP 90HX:** improved operation with memory at 810 MHz or lower.
-- **GeForce RTX 20/30/40/50:** experimental 405 MHz memory-clock option for Linux and HiveOS. [Setup guide](docs/HIVEOS.md).
+- **GeForce RTX 20/30/40/50:** experimental 405 MHz memory-clock mode for Linux and HiveOS, tested with NVIDIA driver `610.43.03`. HiveOS driver update: `nvidia-driver-update 610.43.03`. [Setup guide](docs/HIVEOS.md).
 - **Interface:** clearer GPU table with NVIDIA core voltage and driver version.
 - **Fixes:** fixed NVIDIA GPU selection, improved monitoring and miner stability.
 
