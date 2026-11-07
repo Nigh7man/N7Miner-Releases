@@ -64,6 +64,28 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 **[Full AutoOC guide (English)](AUTOOC.en.md)** · **[Инструкция AutoOC на русском](AUTOOC.md)**
 
+## CMP compute unlock (HiveOS, experimental in v0.1.133)
+
+For compatible CMP 40HX, 50HX, 70HX, 90HX and certain 170HX variants (not CMP 30HX). The installed NVIDIA Open version must match the driver pack and headers for the running kernel must be available.
+
+| Option | Description |
+| --- | --- |
+| `--cmp check` | Check GPU, exact driver version and kernel compatibility without installing modules. |
+| `--cmp unlock` | Download a matching driver pack, build the module and attempt a reboot. Check the Event log if automatic reboot fails. |
+| `--cmp restore` | Restore the stock module; reboot if needed. |
+
+Unlock is off by default. On Ubuntu 24.04/26.04, use the separate `n7miner-cmp.py` launcher.
+
+[Full CMP guide (English)](CMP-HIVEOS.en.md) · [Инструкция CMP на русском](CMP-HIVEOS.md)
+
+## GeForce RTX 405 MHz memory clock (experimental, Linux/HiveOS)
+
+For compatible **GeForce RTX 20, 30, 40 and 50 series** cards with NVIDIA driver **`595.91.07`** or **`610.43.03`**, N7Miner 0.1.133 offers an experimental low-memory-clock mode. Run as **root** and add `--mclock 405` to the miner arguments. When using `--autooc`, configure a **locked core clock** first. If the GPU or driver is unsupported, do not use this mode.
+
+## Separate status relay
+
+If you use a standalone status relay, replace `--token` with `--token-file` or set `N7_PRL_MONITOR_TOKEN` in its environment. This change applies to the separate relay, not ordinary mining.
+
 ## Examples
 
 ### Single pool (Windows)

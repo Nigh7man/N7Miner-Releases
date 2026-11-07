@@ -6,24 +6,27 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 
 **Windows x64 · Linux x64 · HiveOS · Developer fee: 1%**
 
-## What's new in 0.1.132
+## What's new in 0.1.133
 
-- Fixed miner crashes on certain architectures.
-- Minor bug fixes.
+- **CMP (HiveOS):** experimental compute unlock for compatible CMP GPUs. Check, enable or restore directly from the miner settings. [Setup guide](docs/CMP-HIVEOS.en.md).
+- **CMP 90HX:** improved operation with memory at 810 MHz or lower.
+- **GeForce RTX 20/30/40/50:** experimental 405 MHz memory-clock option for Linux and HiveOS. [Setup guide](docs/HIVEOS.md).
+- **Interface:** clearer GPU table with NVIDIA core voltage and driver version.
+- **Fixes:** fixed NVIDIA GPU selection, improved monitoring and miner stability.
 
 ## Download
 
 | Platform | Package |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.132 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.132/N7Miner-v0.1.132-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.132 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.132/N7Miner-v0.1.132-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.132 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.132/n7miner-0.1.132_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.133 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.133/N7Miner-v0.1.133-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.133 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.133/N7Miner-v0.1.133-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.133 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.133/n7miner-0.1.133_universal_hive_x64.tar.gz) |
 
 [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest published release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
 **News and updates:** [N7Miner Telegram channel](https://t.me/N7Miner).
 
-Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.132/SHA256SUMS.txt).
+Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.133/SHA256SUMS.txt).
 
 # Features
 
@@ -97,7 +100,7 @@ Tested on the following GPUs:
 | NVIDIA GeForce RTX 5080 | ~263 TH/s |
 | NVIDIA GeForce RTX 3080 Ti | ~152 TH/s |
 | NVIDIA GeForce RTX 3080 | ~130 TH/s |
-| NVIDIA CMP 90HX | ~99 TH/s |
+| NVIDIA CMP 90HX | ~102 TH/s |
 | NVIDIA GeForce RTX 3070 | ~90 TH/s |
 | NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~81 TH/s |
 | NVIDIA GeForce RTX 3070 Laptop GPU | ~71 TH/s |
@@ -111,9 +114,9 @@ Results depend on the card, clock settings, power, cooling and drivers.
 
 Compare the downloaded archive's SHA-256 with `SHA256SUMS.txt` in the matching release. Replace the placeholder with the filename you downloaded:
 
-**Windows:** `Get-FileHash .\N7Miner-v0.1.132-universal-windows-x64.zip -Algorithm SHA256`
+**Windows:** `Get-FileHash .\N7Miner-v0.1.133-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.132-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.133-universal-linux-x64.tar.gz`
 
 Having trouble? [Open an issue](https://github.com/Nigh7man/N7Miner-Releases/issues) with the version, GPU, driver, pool and relevant log output. Don't post passwords or private keys.
 
