@@ -15,8 +15,8 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 | Platform | Package |
 | --- | --- |
 | Windows x64 | [N7Miner 0.1.134 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.134 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.134 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64.tar.gz) |
+| Linux x64 | [N7Miner 0.1.134 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-linux-x64-405fix.tar.gz) |
+| HiveOS | [N7Miner 0.1.134 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64_405fix.tar.gz) |
 
 [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest published release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
@@ -112,7 +112,7 @@ Compare the downloaded archive's SHA-256 with `SHA256SUMS.txt` in the matching r
 
 **Windows:** `Get-FileHash .\N7Miner-v0.1.134-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.134-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.134-universal-linux-x64-405fix.tar.gz`
 
 Having trouble? [Open an issue](https://github.com/Nigh7man/N7Miner-Releases/issues) with the version, GPU, driver, pool and relevant log output. Don't post passwords or private keys.
 

@@ -15,8 +15,8 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 | Система | Архив |
 | --- | --- |
 | Windows x64 | [N7Miner 0.1.134 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.134 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.134 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64.tar.gz) |
+| Linux x64 | [N7Miner 0.1.134 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/N7Miner-v0.1.134-universal-linux-x64-405fix.tar.gz) |
+| HiveOS | [N7Miner 0.1.134 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64_405fix.tar.gz) |
 
 [Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний опубликованный релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
@@ -112,7 +112,7 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 **Windows:** `Get-FileHash .\N7Miner-v0.1.134-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.134-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.134-universal-linux-x64-405fix.tar.gz`
 
 Если майнер работает неправильно, [создайте Issue](https://github.com/Nigh7man/N7Miner-Releases/issues). Напишите версию, модель GPU, драйвер, пул и приложите нужный фрагмент лога. Не публикуйте пароли и приватные ключи.
 
