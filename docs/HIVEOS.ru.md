@@ -65,7 +65,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64_405fix.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -94,7 +94,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64_405fix.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -123,7 +123,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.134/n7miner-0.1.134_universal_hive_x64_405fix.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
