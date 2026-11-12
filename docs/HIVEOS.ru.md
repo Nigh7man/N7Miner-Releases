@@ -4,6 +4,20 @@
 
 Используйте пакет **Custom Miner** из официального раздела [GitHub Releases](https://github.com/Nigh7man/N7Miner-Releases/releases).
 
+## Защищённое подключение к пулам и Power Limit (0.1.136)
+
+Для подключения к пулу по **Stratum TLS (SSL)** укажите в адресе пула `stratum+ssl://АДРЕС_ПУЛА:TLS_ПОРТ`. Используйте TLS-порт, который указал сам пул. Обычный адрес без TLS-префикса остаётся незашифрованным.
+
+Чтобы ограничить энергопотребление NVIDIA-карт из майнера, добавьте в **Flight Sheet → Extra config arguments**:
+
+```text
+--pl 250
+```
+
+Так устанавливается Power Limit **250 Вт**. Можно задать процент от штатного лимита, например `--pl 80%`. Для нескольких карт поддерживается список значений. При обычном завершении майнер восстанавливает предыдущий лимит, если не указан `--no-reset-oc`.
+
+[Подробнее о настройках CLI](CLI.md)
+
 ## AutoOC
 
 Для автоматического подбора частоты ядра NVIDIA задайте в HiveOS **Lock Core Clock** и начальный **Core Clock** (смещение частоты). Для PearlHash (PRL) на поддерживаемых видеокартах рекомендуем **Lock Memory Clock = 810 МГц** для лучшей энергоэффективности. В **Extra config arguments** добавьте `--autooc`, примените Flight Sheet и перезапустите майнер. AutoOC регулирует только смещение частоты ядра.
@@ -65,7 +79,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.136/n7miner-0.1.136_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -94,7 +108,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.136/n7miner-0.1.136_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -123,7 +137,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.135/n7miner-0.1.135_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.136/n7miner-0.1.136_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []

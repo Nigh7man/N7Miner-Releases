@@ -44,6 +44,29 @@ Diagnostic / maintenance options:
 | `--help` | Show command-line help |
 | `--version` | Show N7Miner version |
 
+## Secure Stratum connections (v0.1.136)
+
+To connect to a pool over encrypted TLS, use the pool's **TLS address and port**:
+
+```bash
+--pool stratum+ssl://POOL_HOST:TLS_PORT
+```
+
+`stratum+tls://` is also supported. Replace `POOL_HOST` and `TLS_PORT` with the address and TLS port provided by the pool. TLS certificates are verified by default; a plain `host:port` remains an unencrypted connection. Check the pool's documented TLS endpoint before using this option.
+
+## NVIDIA Power Limit (v0.1.136)
+
+Set the GPU power limit from the miner CLI using `--pl` (alias `--power-limit`). For example:
+
+```bash
+--pl 250
+--pl 80%
+```
+
+The first example requests **250 W**. The second sets **80% of the GPU's default power limit**. With multiple selected NVIDIA GPUs, provide values in their selection order, for example `--devices 0,1 --pl 250,230`. Use `-` for a GPU that should remain unchanged.
+
+The requested limit is constrained by the card's supported range. N7Miner restores the previous limit on normal exit unless `--no-reset-oc` is used. Power Limit control is NVIDIA-only.
+
 ## AutoOC (NVIDIA)
 
 AutoOC automatically tunes a stable NVIDIA GPU core offset while mining. A locked core clock is required; AMD GPUs and memory offsets are not tuned.
