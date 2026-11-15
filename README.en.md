@@ -100,7 +100,7 @@ See the [command-line reference](docs/CLI.md) for the full set of options, clock
 
 ## Tested GPUs and hashrates
 
-N7Miner 0.1.138 measurements (November 15, 2026); RTX A3000 Laptop GPU was measured on 0.1.137:
+Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
 
 | GPU | Hashrate | GPU power |
 | --- | ---: | ---: |
