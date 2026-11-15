@@ -100,7 +100,7 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 ## Хэшрейт на проверенных картах
 
-Актуальные замеры на тестовых сборках N7Miner 0.1.138 от 15.11.2026:
+Актуальные замеры N7Miner 0.1.138 от 15.11.2026; RTX A3000 Laptop GPU — по скриншоту версии 0.1.137:
 
 | Видеокарта | Хэшрейт | Потребление GPU |
 | --- | ---: | ---: |
@@ -111,6 +111,7 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 | NVIDIA GeForce RTX 3070 | ~89 TH/s | ~161 Вт |
 | NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~82 TH/s | ~75 Вт |
 | NVIDIA GeForce RTX 3070 Laptop GPU | ~72–75 TH/s | ~82–115 Вт |
+| NVIDIA RTX A3000 Laptop GPU | ~55,3 TH/s | ~119 Вт |
 | AMD Radeon RX 6600 XT | ~11,5 TH/s | ~60 Вт |
 | AMD Radeon RX 6600M | ~9,5 TH/s | ~50 Вт |
 | AMD Radeon RX 5700 XT | ~3,9 TH/s | ~105 Вт |

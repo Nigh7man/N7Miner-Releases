@@ -100,7 +100,7 @@ See the [command-line reference](docs/CLI.md) for the full set of options, clock
 
 ## Tested GPUs and hashrates
 
-Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
+N7Miner 0.1.138 measurements (November 15, 2026); RTX A3000 Laptop GPU was measured on 0.1.137:
 
 | GPU | Hashrate | GPU power |
 | --- | ---: | ---: |
@@ -111,6 +111,7 @@ Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
 | NVIDIA GeForce RTX 3070 | ~89 TH/s | ~161 W |
 | NVIDIA GeForce RTX 3070 Ti Laptop GPU | ~82 TH/s | ~75 W |
 | NVIDIA GeForce RTX 3070 Laptop GPU | ~72–75 TH/s | ~82–115 W |
+| NVIDIA RTX A3000 Laptop GPU | ~55.3 TH/s | ~119 W |
 | AMD Radeon RX 6600 XT | ~11.5 TH/s | ~60 W |
 | AMD Radeon RX 6600M | ~9.5 TH/s | ~50 W |
 | AMD Radeon RX 5700 XT | ~3.9 TH/s | ~105 W |
