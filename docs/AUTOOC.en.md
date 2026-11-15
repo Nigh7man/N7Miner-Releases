@@ -6,7 +6,7 @@ AutoOC finds a stable **Core Clock Offset** for each NVIDIA GPU while it mines. 
 
 **AutoOC does not tune AMD GPUs or memory clocks.** Each supported NVIDIA card is tuned independently.
 
-**For PearlHash (PRL), we recommend locking GPU memory to 810 MHz** for better power efficiency, based on tested configurations. Use **Lock Memory Clock** in HiveOS or `--mclock 810` on Windows. This is a separate setting: AutoOC only tunes the core clock offset.
+**For PearlHash (PRL), a 405 MHz memory lock is preferred for power efficiency on compatible GPUs and drivers; use 810 MHz if 405 MHz is unavailable.** Use `--mclock 405` for 405 MHz (under **Extra config arguments** on HiveOS). For 810 MHz, use `--mclock 810` or **Lock Memory Clock** in HiveOS. This is a separate setting: AutoOC only tunes the core clock offset.
 
 ## Requirements
 
@@ -14,29 +14,31 @@ AutoOC finds a stable **Core Clock Offset** for each NVIDIA GPU while it mines. 
 - A **locked core clock**: set `Lock Core Clock` in HiveOS or pass `--cclock` on Windows. Cards without a core clock lock are skipped.
 - A **starting core offset**: HiveOS `Core Clock` or `--coffset`. Without `--coffset`, N7Miner uses the GPU's current offset.
 
-When active, `AutoOC` appears after `PearlHash` in the TUI header. The GPU table shows `AUTO` and `CORE OC` columns.
+With `--autooc` enabled, **AutoOC** appears after `PearlHash` in the TUI header (the NVIDIA driver version may appear between them). The **`A`** column shows AutoOC state, **`OFFSET`** shows the current core offset in MHz, and **`PS`** is a separate Power Save indicator. [Power Save guide](POWER-SAVE.en.md).
 
 ## How to enable it
 
 ### HiveOS
 
 1. In the NVIDIA GPU's OC settings, set **Lock Core Clock**, for example `1800` MHz.
-2. Set **Core Clock** (starting offset), for example `150` MHz. For PRL, we also recommend **Lock Memory Clock = 810 MHz** if the GPU supports locking memory to that value.
+2. Set **Core Clock** (starting offset), for example `150` MHz. For PRL, prefer `--mclock 405` under **Extra config arguments** on supported GPUs and drivers; otherwise use **Lock Memory Clock = 810 MHz**.
 3. Add this flag to N7Miner's **Extra config arguments** in the Flight Sheet:
 
 ~~~text
 --autooc
 ~~~
 
-4. Apply the Flight Sheet and restart the miner. Confirm that the TUI shows `AutoOC` and the `AUTO` / `CORE OC` columns.
+4. Apply the Flight Sheet and restart the miner. Confirm that the TUI shows `AutoOC` and `A` / `OFFSET` columns.
 
 ### Windows (BAT)
 
 Append AutoOC and the clock parameters to your launch command (replace the wallet):
 
 ~~~bat
-n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --cclock 1800 --coffset 150 --mclock 810 --autooc
+n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --cclock 1800 --coffset 150 --mclock 405 --autooc
 ~~~
+
+If your GPU or driver does not support `--mclock 405`, replace it with `--mclock 810` in the example.
 
 `--cclock 1800` locks the core clock, and `--coffset 150` sets the starting offset. For multiple GPUs, values can be given as comma-separated lists.
 
@@ -59,28 +61,28 @@ Only time actually spent mining counts. Pool disconnects and pauses do not count
 ~~~text
 n7miner | PearlHash | AutoOC
 
-GPU                       AUTO  CORE OC
-RTX 3080                    ▲    +210
-RTX 3080                    ✓    +180
-RTX 3080                    ~    +190
-RTX 3080                    ▼    +160
+GPU                        A  OFFSET  PS
+RTX 3080                  ▲    +210    —
+RTX 3080                  ✓    +180    —
+RTX 3080                  ~    +190    —
+RTX 3080                  ▼    +160    —
 ~~~
 
 ### After tuning is complete
 
-Once each GPU has found its stable setting, the `AUTO` column shows `✓` for every card. For example:
+Once each GPU has found its stable setting, the `A` column shows `✓` for every card. For example:
 
 ~~~text
-GPU                       AUTO  CORE OC
-RTX 3080                    ✓    +230
-RTX 3080                    ✓    +180
-RTX 3080                    ✓    +210
-RTX 3080                    ✓    +160
+GPU                        A  OFFSET  PS
+RTX 3080                  ✓    +230    —
+RTX 3080                  ✓    +180    —
+RTX 3080                  ✓    +210    —
+RTX 3080                  ✓    +160    —
 ~~~
 
 After a miner restart or machine reboot, AutoOC uses the saved offsets: the GPUs warm up first, then return to their stored settings.
 
-### The AUTO column
+### The A column
 
 | Symbol | Meaning |
 | --- | --- |

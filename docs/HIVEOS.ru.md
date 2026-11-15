@@ -18,9 +18,23 @@
 
 [Подробнее о настройках CLI](CLI.md)
 
+## Power Save (0.1.138)
+
+NVIDIA Power Save поддерживает уровни `0`–`3`. В **Flight Sheet → Extra config arguments** добавьте:
+
+```text
+--ps 1
+```
+
+Уровень `0` отключает Power Save, а `1`–`3` выбирают профили энергосбережения. Необходимы права **`root`** и совместимые видеокарта/драйвер. Power Save не заменяет Power Limit (`--pl`) и AutoOC.
+
+**Power Save протестирован в HiveOS с драйверами NVIDIA `610.43.03` и `615.71.10`.**
+
+[Гайд Power Save](POWER-SAVE.md)
+
 ## AutoOC
 
-Для автоматического подбора частоты ядра NVIDIA задайте в HiveOS **Lock Core Clock** и начальный **Core Clock** (смещение частоты). Для PearlHash (PRL) на поддерживаемых видеокартах рекомендуем **Lock Memory Clock = 810 МГц** для лучшей энергоэффективности. В **Extra config arguments** добавьте `--autooc`, примените Flight Sheet и перезапустите майнер. AutoOC регулирует только смещение частоты ядра.
+Для автоматического подбора частоты ядра NVIDIA задайте в HiveOS **Lock Core Clock** и начальный **Core Clock** (смещение частоты). Для PearlHash (PRL) предпочтителен **лок памяти 405 МГц** на совместимых картах и драйверах: укажите `--mclock 405` в **Extra config arguments**. Если режим недоступен, используйте **Lock Memory Clock = 810 МГц**. Добавьте `--autooc`, примените Flight Sheet и перезапустите майнер. AutoOC регулирует только смещение частоты ядра.
 
 [Подробная инструкция AutoOC на русском](AUTOOC.md) · [AutoOC guide in English](AUTOOC.en.md)
 
@@ -79,7 +93,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -108,7 +122,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -137,7 +151,7 @@ nvidia-driver-update 610.43.03
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []

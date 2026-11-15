@@ -1,140 +1,131 @@
-# N7Miner — Command Line Reference
+# N7Miner 0.1.138 — Command Line Reference
 
-N7Miner accepts command-line configuration for GPU selection, pool connections, logging and GPU clock controls.
+This reference has been checked against `--help` and `--version` from the uploaded Windows and Linux v0.1.138 binaries. **A flag shown in help does not guarantee that the corresponding optional driver feature was built in.**
 
-Confirm options against your installed version with `n7miner --help`.
+Windows: `n7miner.exe --help` / `n7miner.exe --version`.
+Linux: `./n7miner --help` / `./n7miner --version`.
 
-## Command Line Options
+## Mining, pools, GPU selection
 
-Common options:
-
-| Option | Short | Description |
-| --- | --- | --- |
-| `--pool` | `-o` | Pool endpoint or comma-separated failover list |
-| `--wallet` | `-u` | Pool wallet/account |
-| `--worker` | `-w` | Worker name |
-| `--pass` | `-p` | Pool password |
-| `--devices` | `-d` | NVIDIA devices: index list, `auto` or `all` |
-| `--amd-devices` |  | AMD devices: index list, `auto` or `all` |
-| `--algo` | `-a` | Mining algorithm |
-| `--notui` |  | Scrolling console mode |
-| `--log-interval` |  | Console statistics interval |
-| `--no-color` |  | Disable console colors |
-
-GPU clock control:
-
-| Option | Description |
+| Option | Purpose |
 | --- | --- |
-| `--cclock` | Lock core clock |
-| `--mclock` | Lock memory clock |
-| `--coffset` | Core clock offset |
-| `--moffset` | Memory clock offset |
-| `--restore-cclock` | Core clock baseline to restore on exit |
-| `--restore-mclock` | Memory clock baseline to restore on exit |
-| `--reset-oc` | Restore clock settings when the miner exits |
-| `--no-reset-oc` | Keep miner-applied clocks after exit |
+| `-a pearlhash` / `--algo pearlhash` | Select PearlHash (PRL). Quantus needs a compatible user build. |
+| `-o HOST:PORT` / `--pool HOST:PORT` | Primary pool; comma-separated endpoints for ordered failover. |
+| `-u WALLET` / `--wallet WALLET` | Pool account/wallet. |
+| `-w rig01` / `--worker rig01` | Worker identifier. |
+| `-p x` / `--pass x` | Pool password (defaults to `x` if not otherwise set). |
+| `-d 0,1` / `--devices 0,1` | NVIDIA device selection; accepts a list, `all`, `auto`. |
+| `--amd-devices all` | AMD device selection: indices, `all`, `auto`, or `off`. |
+| `--amd-counter N` | Initial AMD source counter (advanced). |
+| `--profile NAME` | Select an available NVIDIA kernel profile (advanced). |
 
-Diagnostic / maintenance options:
+Basic Windows launch:
 
-| Option | Description |
-| --- | --- |
-| `--self-check` | Verify production startup integrity without starting GPU workers |
-| `--self-check-network` | Check production service connectivity without mining |
-| `--no-submit` | Search normally but do not submit shares |
-| `--help` | Show command-line help |
-| `--version` | Show N7Miner version |
+```bat
+n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 -p x -d auto
+```
 
-## Secure Stratum connections (v0.1.136)
+Replace `YOUR_WALLET` with your own wallet address. To use both vendors, add `--devices all --amd-devices all`; to disable AMD explicitly use `--amd-devices off`.
 
-To connect to a pool over encrypted TLS, use the pool's **TLS address and port**:
+## Secure Stratum connections
 
-```bash
+Use a pool endpoint with its actual **TLS port**, for example:
+
+```text
 --pool stratum+ssl://POOL_HOST:TLS_PORT
 ```
 
-`stratum+tls://` is also supported. Replace `POOL_HOST` and `TLS_PORT` with the address and TLS port provided by the pool. TLS certificates are verified by default; a plain `host:port` remains an unencrypted connection. Check the pool's documented TLS endpoint before using this option.
+`stratum+tls://`, `ssl://` and `tls://` schemes are also supported. Certificate validation is enabled by default. `--no-strict-ssl` accepts an untrusted or self-signed pool certificate: traffic stays encrypted, but the pool identity is **not authenticated**. Plain `host:port` connections do not use TLS.
 
-## NVIDIA Power Limit (v0.1.136)
+## NVIDIA clocks and power control
 
-Set the GPU power limit from the miner CLI using `--pl` (alias `--power-limit`). For example:
+| Option | Purpose |
+| --- | --- |
+| `--pl 250` / `--power-limit 250` | Request a 250 W GPU Power Limit. |
+| `--pl 80%` | Use 80% of the card's default power limit. |
+| `--power-save 1` / `--ps 1` | Power Save profile, levels `0` through `3`. |
+| `--cclock 1800` | Lock core clock to 1800 MHz on a compatible card. |
+| `--mclock 405` / `--mclock 810` | For PearlHash, prefer 405 MHz for better power efficiency where supported; use 810 MHz as a fallback. Availability depends on the GPU/driver. |
+| `--coffset 150` | Apply a core offset (MHz). |
+| `--moffset -200` | Apply a memory offset (MHz). |
+| `--restore-cclock BASELINE` | Previously configured core lock to restore on exit. |
+| `--restore-mclock BASELINE` | Previously configured memory lock to restore on exit. |
+| `--reset-oc` | Restore clock offsets / supplied lock baselines on normal exit. |
+| `--no-reset-oc` | Keep miner-applied clock settings after exit. |
+| `--cmp-mclock 405` | Experimental memory-control mode for compatible CMP GPUs (405 or 810 MHz). |
 
-```bash
---pl 250
---pl 80%
+Examples for selected NVIDIA devices: `--devices 0,1 --pl 250,230` or `--devices 0,1 --coffset 100,150`. For Power Limit, `-` leaves an individual GPU unchanged.
+
+### Power Save
+
+`--ps 0` leaves Power Save off; `--ps 1`, `--ps 2` and `--ps 3` select its profiles. One value applies to all selected NVIDIA GPUs, or supply a list in `--devices` order:
+
+```text
+--ps 1
+--devices 0,1,2 --ps 1,2,0
 ```
 
-The first example requests **250 W**. The second sets **80% of the GPU's default power limit**. With multiple selected NVIDIA GPUs, provide values in their selection order, for example `--devices 0,1 --pl 250,230`. Use `-` for a GPU that should remain unchanged.
+**Power Save (v0.1.138):** available on compatible NVIDIA GPUs under Windows, Linux and HiveOS. Linux/HiveOS requires `root` for driver controls. Verify the installed binary and driver support the mode; `--help` alone is not proof of compatibility.
 
-The requested limit is constrained by the card's supported range. N7Miner restores the previous limit on normal exit unless `--no-reset-oc` is used. Power Limit control is NVIDIA-only.
+**Power Save tested with NVIDIA drivers:** HiveOS `610.43.03`, `615.71.10`; Windows `596.49`, `621.24`.
 
-## AutoOC (NVIDIA)
+[Power Save — Русский](POWER-SAVE.md) · [Power Save — English](POWER-SAVE.en.md)
 
-AutoOC automatically tunes a stable NVIDIA GPU core offset while mining. A locked core clock is required; AMD GPUs and memory offsets are not tuned.
+### AutoOC
 
-| Option | What it does |
+AutoOC adjusts NVIDIA core offsets while a locked core clock is configured:
+
+| Option | Purpose |
 | --- | --- |
-| `--autooc` | Enable automatic GPU core offset tuning. |
-| `--autooc-max 300` | Set the maximum offset in MHz (default: initial offset +150 MHz). |
-| `--autooc-warmup 3` | Set startup warm-up duration in minutes (default 3; range 0–60). |
-| `--autooc-reset` | Reset saved tuning once for all GPUs. |
-| `--autooc-reset 0,2` | Reset only the selected GPUs. |
+| `--autooc` | Enable tuning. |
+| `--autooc-max 300` | Upper offset bound; per-GPU lists accepted. |
+| `--autooc-warmup 3` | Startup warm-up minutes, 0–60, default 3. |
+| `--autooc-reset` | One-shot reset for all GPUs. |
+| `--autooc-reset 0,2` | One-shot reset for selected GPUs. |
 
-Use `--cclock` to lock the core clock and `--coffset` to set the starting offset. **For PearlHash (PRL), locking memory to 810 MHz with `--mclock 810` is recommended for better power efficiency** on supported GPUs. AutoOC itself only tunes the core offset:
+```bat
+n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --cclock 1800 --coffset 150 --autooc
+```
 
-~~~bat
-n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --cclock 1800 --coffset 150 --mclock 810 --autooc
-~~~
+The current TUI/console table uses **`A`** (AutoOC icon), **`OFFSET`** (MHz), **`PS`** (Power Save status), not the old `AUTO` or `CORE OC` columns.
 
-**[Full AutoOC guide (English)](AUTOOC.en.md)** · **[Инструкция AutoOC на русском](AUTOOC.md)**
+[AutoOC guide — Русский](AUTOOC.md) · [AutoOC guide — English](AUTOOC.en.md)
 
-## CMP compute unlock (HiveOS, experimental in v0.1.133)
+## Console output, monitoring and diagnostics
 
-For compatible CMP 40HX, 50HX, 70HX, 90HX and certain 170HX variants (not CMP 30HX). The installed NVIDIA Open version must match the driver pack and headers for the running kernel must be available.
-
-| Option | Description |
+| Option | Purpose |
 | --- | --- |
-| `--cmp check` | Check GPU, exact driver version and kernel compatibility without installing modules. |
-| `--cmp unlock` | Download a matching driver pack, build the module and attempt a reboot. Check the Event log if automatic reboot fails. |
-| `--cmp restore` | Restore the stock module; reboot if needed. |
+| `--notui` | Scrolling console mode; also accepts legacy `-notui`. |
+| `--log-interval 180` | Console stats interval in seconds, range 1–3600, default 180. |
+| `--no-color` | Plain output without terminal colors. |
+| `--headless` | Run without interactive TUI. |
+| `--api-enable` | Enable read-only status API on localhost, port 21550. |
+| `--api-port 21550` | Choose API port (also enables the API). |
+| `--api-bind 127.0.0.1` | API listen address (localhost by default). |
+| `--self-check` | Check integrity without starting GPU workers. |
+| `--self-check-network` | Check production network services without GPU workers. |
+| `--no-submit` | Search without submitting shares. |
+| `--help` / `-h` | Show supported arguments. |
+| `--version` / `-V` | Show miner version. |
 
-Unlock is off by default. On Ubuntu 24.04/26.04, use the separate `n7miner-cmp.py` launcher.
+Console example:
 
-[Full CMP guide (English)](CMP-HIVEOS.en.md) · [Инструкция CMP на русском](CMP-HIVEOS.md)
+```bat
+n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --notui --log-interval 180
+```
 
-## GeForce RTX 405 MHz memory clock (experimental, Linux/HiveOS)
+With API enabled, the local endpoint is `http://127.0.0.1:21550/api/v1/status`. Non-loopback API binds expose miner information without authentication.
 
-The experimental `--mclock 405` mode has been tested with NVIDIA driver **`610.43.03`** on compatible **GeForce RTX 20/30/40/50-series** GPUs. On HiveOS, install or update this driver with `nvidia-driver-update 610.43.03`. Run as **root**. When using `--autooc`, configure a **locked core clock** first. Compatibility still depends on the GPU and rig.
+## HiveOS CMP wrapper (separate from native miner options)
+
+The HiveOS **Custom Miner wrapper** recognizes `--cmp check`, `--cmp unlock` and `--cmp restore`. These are **not** native flags shown by the miner's `--help`. They check GPU compatibility, install a matching driver-pack module, or restore the stock module. Ubuntu 24.04/26.04 also has the separate `n7miner-cmp.py` launcher.
+
+[CMP guide — Русский](CMP-HIVEOS.md) · [CMP guide — English](CMP-HIVEOS.en.md)
 
 ## Separate status relay
 
-If you use a standalone status relay, replace `--token` with `--token-file` or set `N7_PRL_MONITOR_TOKEN` in its environment. This change applies to the separate relay, not ordinary mining.
-
-## Examples
-
-### Single pool (Windows)
-
-~~~bat
-n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 -p x -d auto
-~~~
-
-### Mixed NVIDIA and AMD rig (Windows)
-
-~~~bat
-n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 --devices all --amd-devices all
-~~~
-
-### Pool failover
-
-~~~bash
---pool primary.pool:7048,backup1.pool:7048,backup2.pool:7048
-~~~
-
-### Console mode
-
-~~~bash
---notui --log-interval 180
-~~~
+The optional external status relay uses `--token-file` or environment variable `N7_PRL_MONITOR_TOKEN` instead of the deprecated `--token`. These are not miner CLI flags.
 
 ---
 
-[← Back to N7Miner](../README.md)
+[English README](../README.en.md) · [Русский README](../README.md)

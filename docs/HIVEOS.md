@@ -18,9 +18,23 @@ This requests a **250 W** limit. You can also use a percentage of the card's def
 
 [More CLI settings](CLI.md)
 
+## Power Save (v0.1.138)
+
+NVIDIA Power Save supports levels `0`–`3`. Add this in **Flight Sheet → Extra config arguments**:
+
+```text
+--ps 1
+```
+
+Level `0` disables Power Save, while levels `1`–`3` select power-efficiency profiles. **Root** permissions and compatible GPU/driver are required. Power Save is independent of Power Limit (`--pl`) and AutoOC.
+
+**Power Save tested on HiveOS with NVIDIA drivers `610.43.03` and `615.71.10`.**
+
+[Power Save guide](POWER-SAVE.en.md)
+
 ## AutoOC
 
-To use NVIDIA AutoOC, set the GPU's **Lock Core Clock** and starting **Core Clock** offset in HiveOS. **For PearlHash (PRL), we recommend Lock Memory Clock = 810 MHz for better power efficiency** on supported GPUs. Add `--autooc` to the miner's **Extra config arguments**, apply the Flight Sheet and restart the miner. AutoOC only tunes the core offset.
+To use NVIDIA AutoOC, set the GPU's **Lock Core Clock** and starting **Core Clock** offset in HiveOS. **For PearlHash (PRL), prefer a 405 MHz memory lock** on compatible GPUs/drivers: add `--mclock 405` to **Extra config arguments**. If 405 MHz is unavailable, use **Lock Memory Clock = 810 MHz** instead. Add `--autooc`, apply the Flight Sheet and restart the miner. AutoOC only tunes the core offset.
 
 **[AutoOC guide (English)](AUTOOC.en.md)** · **[Инструкция AutoOC (русский)](AUTOOC.md)**
 
@@ -75,7 +89,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -104,7 +118,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
@@ -133,7 +147,7 @@ The miner is downloaded directly from the official N7Miner GitHub Release.
         "pass": "x",
         "miner": "n7miner",
         "template": "%WAL%.%WORKER_NAME%",
-        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.137/n7miner-0.1.137_universal_hive_x64.tar.gz",
+        "install_url": "https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz",
         "user_config": ""
       },
       "pool_geo": []
