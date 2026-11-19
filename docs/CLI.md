@@ -1,6 +1,6 @@
-# N7Miner 0.1.138 — Command Line Reference
+# N7Miner 0.1.139 — Command Line Reference
 
-This reference has been checked against `--help` and `--version` from the uploaded Windows and Linux v0.1.138 binaries. **A flag shown in help does not guarantee that the corresponding optional driver feature was built in.**
+This reference has been checked against `--help`, `--version` and CPU-only `--self-check` from the v0.1.139 Windows and Linux production binaries. **A flag shown in help does not guarantee that the corresponding optional driver feature was built in.**
 
 Windows: `n7miner.exe --help` / `n7miner.exe --version`.
 Linux: `./n7miner --help` / `./n7miner --version`.
@@ -79,7 +79,7 @@ AutoOC adjusts NVIDIA core offsets while a locked core clock is configured:
 | --- | --- |
 | `--autooc` | Enable tuning. |
 | `--autooc-max 300` | Upper offset bound; per-GPU lists accepted. |
-| `--autooc-warmup 3` | Startup warm-up minutes, 0–60, default 3. |
+| `--autooc-warmup 1` | Startup warm-up minutes, 0–60, default 1. |
 | `--autooc-reset` | One-shot reset for all GPUs. |
 | `--autooc-reset 0,2` | One-shot reset for selected GPUs. |
 

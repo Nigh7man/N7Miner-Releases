@@ -46,11 +46,12 @@ If your GPU or driver does not support `--mclock 405`, replace it with `--mclock
 
 | Stage | What happens |
 | --- | --- |
-| **Warm-up: 3 minutes** | At startup, the GPU temporarily runs **20 MHz below** its selected offset to reduce the risk of cold-start boost instability. |
+| **Warm-up: 1 minute** | At startup, the GPU temporarily runs **20 MHz below** its selected offset to reduce the risk of cold-start boost instability. Adjust with `--autooc-warmup`. |
 | **Search** | After every **20 minutes of stable mining**, AutoOC increases the offset by **10 MHz**. |
 | **Testing the new step** | The higher setting is tested for 20 minutes. A single fault during this test immediately steps back by 10 MHz, and the failed value becomes the ceiling. |
 | **Tuned** | Once the upper limit or a stability ceiling is reached, the current stable offset is saved and used through restarts. |
-| **Faults after tuning** | If a tuned GPU has **3 faults within 24 hours** at the same offset, AutoOC decreases it by 10 MHz and saves a new ceiling. Faults older than 24 hours expire. |
+| **Faults after tuning** | If a tuned GPU has **3 hardware faults within 24 hours** at the same offset, AutoOC decreases it by 10 MHz and saves a new ceiling. Faults older than 24 hours expire. |
+| **Wrong calculation results** | **3 CPU-verified wrong results within 1 hour** on the same GPU lower Core Offset by 10 MHz. This is separate from the hardware-fault counter. |
 
 **Search limits:** the lower bound is starting offset −100 MHz; the upper bound is starting offset +150 MHz, or the custom `--autooc-max` setting. A full search may take several hours.
 
@@ -99,7 +100,7 @@ After a miner restart or machine reboot, AutoOC uses the saved offsets: the GPUs
 | --- | --- |
 | `--autooc` | Enables AutoOC for eligible NVIDIA GPUs; off by default. |
 | `--autooc-max 300` | Maximum core offset in MHz. Accepts per-GPU comma-separated values such as `300,250`. Default: starting offset +150 MHz. |
-| `--autooc-warmup 3` | Startup warm-up in minutes (0–60). Default: 3; use `0` to disable warm-up. |
+| `--autooc-warmup 1` | Startup warm-up in minutes (0–60). Default: 1; use `0` to disable warm-up. |
 | `--autooc-reset` | Reset saved tuning for all GPUs. |
 | `--autooc-reset 0,2` | Reset only GPU 0 and GPU 2. |
 | `--cclock 1800` | Lock the GPU core clock; HiveOS can supply the lock through OC settings. |
@@ -128,7 +129,7 @@ For a full manual reset, stop the miner and delete `n7miner-autooc.state`.
 
 ## Faults and logs
 
-AutoOC counts GPU kernel faults, including CUDA 700 and 714–719 (often reported as Xid 13 or Xid 31), and GPU hangs with no completed work that trigger the miner's watchdog restart. **Network failures, pool errors and rejected shares do not count as AutoOC faults.**
+AutoOC handles GPU kernel faults, including CUDA 700 and 714–719 (often reported as Xid 13 or Xid 31), GPU hangs and verified wrong calculation results. In v0.1.139 the miner can recover the affected GPU worker separately. **Network failures, pool errors and rejected shares do not count as AutoOC faults.**
 
 Example log lines (illustrative):
 
@@ -143,7 +144,7 @@ autooc reset: every card starts a new search
 
 **Things to know:**
 
-- While tuning, a fault on one GPU can restart the entire miner. Some restarts in the first hours are possible.
+- In v0.1.139, GPU workers are isolated: a failure can trigger a local restart of the affected GPU process without normally restarting other cards.
 - An unstable memory overclock can look like a core fault. Keep some memory OC headroom while AutoOC is searching.
 - A ceiling stays saved; it does not rise automatically. After fixing a bad riser or power issue, restart tuning for the affected card using `--autooc-reset`.
 - After changing HiveOS overclock settings, restart the miner.

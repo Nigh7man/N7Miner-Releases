@@ -6,25 +6,25 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 
 **Windows x64 · Linux x64 · HiveOS · Комиссия разработчика 1%**
 
-## Что изменилось в 0.1.138
+## Что изменилось в 0.1.139
 
-- Небольшое увеличение хэшрейта.
-- Улучшена энергоэффективность майнинга.
-- Добавлен режим **Power Save** для NVIDIA на Windows, Linux и HiveOS. [Инструкция](docs/POWER-SAVE.md).
+- **Ampere (SM86 / RTX 30):** небольшое улучшение энергоэффективности майнинга.
+- **AutoOC:** переработана обработка ошибок вычислений и восстановление работы отдельных GPU.
+- **Bug fixes:** исправлены ошибки и улучшена стабильность.
 
 ## Скачать
 
 | Система | Архив |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.138 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/N7Miner-v0.1.138-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.138 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/N7Miner-v0.1.138-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.138 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.139 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.139 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.139 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/n7miner-0.1.139_universal_hive_x64.tar.gz) |
 
 [Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний опубликованный релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
 **Новости и обновления:** [Telegram-канал N7Miner](https://t.me/N7Miner).
 
-Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/SHA256SUMS.txt).
+Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/SHA256SUMS.txt).
 
 # Что умеет N7Miner
 
@@ -48,7 +48,7 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 
 ## AutoOC
 
-Режим `--autooc` сам подбирает offset ядра NVIDIA при залоченной частоте. Карты настраиваются по отдельности: майнер повышает offset небольшими шагами, откатывает его при ошибках и сохраняет найденные значения.
+Режим `--autooc` сам подбирает offset ядра NVIDIA при залоченной частоте. Карты настраиваются по отдельности: майнер повышает offset небольшими шагами, откатывает его при ошибках и сохраняет найденные значения. В 0.1.139 переработаны учёт неверных вычислений и восстановление отдельной GPU.
 
 Для запуска в HiveOS укажите **Lock Core Clock** и стартовый **Core Clock**, затем добавьте `--autooc` в `Extra config arguments`. В Windows используйте `--cclock`, `--coffset` и `--autooc`.
 
@@ -120,9 +120,9 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 Сверьте SHA-256 скачанного архива с `SHA256SUMS.txt` из релиза. Команды для проверки (подставьте имя скачанного файла):
 
-**Windows:** `Get-FileHash .\N7Miner-v0.1.138-universal-windows-x64.zip -Algorithm SHA256`
+**Windows:** `Get-FileHash .\N7Miner-v0.1.139-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.138-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.139-universal-linux-x64.tar.gz`
 
 Если майнер работает неправильно, [создайте Issue на GitHub](https://github.com/Nigh7man/N7Miner-Releases/issues) или напишите в комментариях [Telegram-канала N7Miner](https://t.me/N7Miner). Укажите версию майнера, модель GPU, драйвер, пул и приложите нужный фрагмент лога. Не публикуйте пароли и приватные ключи.
 

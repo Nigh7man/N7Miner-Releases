@@ -6,25 +6,25 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 
 **Windows x64 · Linux x64 · HiveOS · Developer fee: 1%**
 
-## What's new in 0.1.138
+## What's new in 0.1.139
 
-- Minor hashrate improvement.
-- Improved mining power efficiency.
-- Added NVIDIA **Power Save** for Windows, Linux and HiveOS. [Setup guide](docs/POWER-SAVE.en.md).
+- **Ampere (SM86 / RTX 30 series):** minor mining power-efficiency improvement.
+- **AutoOC:** reworked calculation-error handling and per-GPU recovery.
+- **Bug fixes:** stability and reliability improvements.
 
 ## Download
 
 | Platform | Package |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.138 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/N7Miner-v0.1.138-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.138 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/N7Miner-v0.1.138-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.138 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/n7miner-0.1.138_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.139 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.139 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.139 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/n7miner-0.1.139_universal_hive_x64.tar.gz) |
 
 [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest published release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
 **News and updates:** [N7Miner Telegram channel](https://t.me/N7Miner).
 
-Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.138/SHA256SUMS.txt).
+Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/SHA256SUMS.txt).
 
 # Features
 
@@ -48,7 +48,7 @@ NVIDIA Power Save is available for Windows, Linux and HiveOS. Enable it with `--
 
 ## AutoOC
 
-The `--autooc` option tunes the NVIDIA GPU core offset while the core clock is locked. Each GPU is tuned independently: the miner raises the offset in small steps, falls back on faults and saves the result.
+The `--autooc` option tunes the NVIDIA GPU core offset while the core clock is locked. Each GPU is tuned independently: the miner raises the offset in small steps, falls back on faults and saves the result. In v0.1.139, wrong-result handling and per-GPU recovery have been reworked.
 
 On HiveOS, set **Lock Core Clock** and a starting **Core Clock**, then add `--autooc` under `Extra config arguments`. On Windows, use `--cclock`, `--coffset` and `--autooc`.
 
@@ -120,9 +120,9 @@ Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
 
 Compare the downloaded archive's SHA-256 with `SHA256SUMS.txt` in the matching release. Replace the placeholder with the filename you downloaded:
 
-**Windows:** `Get-FileHash .\N7Miner-v0.1.138-universal-windows-x64.zip -Algorithm SHA256`
+**Windows:** `Get-FileHash .\N7Miner-v0.1.139-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.138-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.139-universal-linux-x64.tar.gz`
 
 Having trouble? [Open an issue on GitHub](https://github.com/Nigh7man/N7Miner-Releases/issues) or leave a comment in the [N7Miner Telegram channel](https://t.me/N7Miner). Include your miner version, GPU model, driver, pool and relevant log output. Don't post passwords or private keys.
 
