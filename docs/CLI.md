@@ -1,6 +1,6 @@
-# N7Miner 0.1.139 — Command Line Reference
+# N7Miner 0.1.140 — Command Line Reference
 
-This reference has been checked against `--help`, `--version` and CPU-only `--self-check` from the v0.1.139 Windows and Linux production binaries. **A flag shown in help does not guarantee that the corresponding optional driver feature was built in.**
+The v0.1.140 Windows production binary passed --version, --help and CPU-only --self-check --ps 1. Other options retain the published CLI reference; Linux CLI checks have not yet been repeated for this release.
 
 Windows: `n7miner.exe --help` / `n7miner.exe --version`.
 Linux: `./n7miner --help` / `./n7miner --version`.

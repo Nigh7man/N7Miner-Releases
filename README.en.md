@@ -6,25 +6,27 @@ N7Miner mines PearlHash on NVIDIA and AMD GPUs. It runs on Windows, Linux and Hi
 
 **Windows x64 · Linux x64 · HiveOS · Developer fee: 1%**
 
-## What's new in 0.1.139
+## What's new in 0.1.140
 
-- **Ampere (SM86 / RTX 30 series):** minor mining power-efficiency improvement.
-- **AutoOC:** reworked calculation-error handling and per-GPU recovery.
-- **Bug fixes:** stability and reliability improvements.
+- **Pools and shares:** improved failover to backup pools, return to the primary pool, and handling of submitted shares during difficulty changes.
+- **AutoOC:** fixed GPU fault tracking, recovery retries, and specific Power Save control issues.
+
+- **Power efficiency:** minor mining efficiency optimizations.
+- **Bug fixes:** minor bug fixes.
 
 ## Download
 
 | Platform | Package |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.139 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.139 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.139 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/n7miner-0.1.139_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.140 for Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/N7Miner-v0.1.140-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.140 for Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/N7Miner-v0.1.140-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.140 for HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/n7miner-0.1.140_universal_hive_x64.tar.gz) |
 
 [All releases](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Latest published release](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
 **News and updates:** [N7Miner Telegram channel](https://t.me/N7Miner).
 
-Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/SHA256SUMS.txt).
+Verify each archive with [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/SHA256SUMS.txt).
 
 # Features
 
@@ -78,6 +80,8 @@ n7miner --notui --log-interval 180
 
 ### Windows
 
+The Windows archive includes pool starter BAT files for Kryptex, HeroMiners and LuckyPool: start-kryptex.bat, start-herominers.bat and start-luckypool.bat. Replace the wallet placeholder before running.
+
 Extract the ZIP, open the BAT file for your pool and enter your wallet address. Or run the miner yourself:
 
 ~~~bat
@@ -100,7 +104,7 @@ See the [command-line reference](docs/CLI.md) for the full set of options, clock
 
 ## Tested GPUs and hashrates
 
-Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
+Measurements from v0.1.138 test builds, November 15, 2026 (not new v0.1.140 measurements):
 
 | GPU | Hashrate | GPU power |
 | --- | ---: | ---: |
@@ -120,9 +124,9 @@ Updated measurements on N7Miner 0.1.138 test builds, November 15, 2026:
 
 Compare the downloaded archive's SHA-256 with `SHA256SUMS.txt` in the matching release. Replace the placeholder with the filename you downloaded:
 
-**Windows:** `Get-FileHash .\N7Miner-v0.1.139-universal-windows-x64.zip -Algorithm SHA256`
+**Windows:** `Get-FileHash .\N7Miner-v0.1.140-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.139-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.140-universal-linux-x64.tar.gz`
 
 Having trouble? [Open an issue on GitHub](https://github.com/Nigh7man/N7Miner-Releases/issues) or leave a comment in the [N7Miner Telegram channel](https://t.me/N7Miner). Include your miner version, GPU model, driver, pool and relevant log output. Don't post passwords or private keys.
 

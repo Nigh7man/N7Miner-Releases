@@ -6,25 +6,27 @@ N7Miner — майнер PearlHash для видеокарт NVIDIA и AMD. Ра
 
 **Windows x64 · Linux x64 · HiveOS · Комиссия разработчика 1%**
 
-## Что изменилось в 0.1.139
+## Что изменилось в 0.1.140
 
-- **Ampere (SM86 / RTX 30):** небольшое улучшение энергоэффективности майнинга.
-- **AutoOC:** переработана обработка ошибок вычислений и восстановление работы отдельных GPU.
-- **Bug fixes:** исправлены ошибки и улучшена стабильность.
+- **Пулы и шары:** улучшены переключение на резервный пул и возврат на основной, учёт отправленных шар при изменении сложности.
+- **AutoOC:** исправлен учёт ошибок видеокарт, исправлены повторные попытки восстановления и отдельные проблемы управления Power Save.
+
+- **Энергоэффективность:** небольшие оптимизации эффективности майнинга.
+- **Bug fixes:** исправления мелких ошибок.
 
 ## Скачать
 
 | Система | Архив |
 | --- | --- |
-| Windows x64 | [N7Miner 0.1.139 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-windows-x64.zip) |
-| Linux x64 | [N7Miner 0.1.139 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/N7Miner-v0.1.139-universal-linux-x64.tar.gz) |
-| HiveOS | [N7Miner 0.1.139 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/n7miner-0.1.139_universal_hive_x64.tar.gz) |
+| Windows x64 | [N7Miner 0.1.140 для Windows](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/N7Miner-v0.1.140-universal-windows-x64.zip) |
+| Linux x64 | [N7Miner 0.1.140 для Linux](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/N7Miner-v0.1.140-universal-linux-x64.tar.gz) |
+| HiveOS | [N7Miner 0.1.140 для HiveOS](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/n7miner-0.1.140_universal_hive_x64.tar.gz) |
 
 [Все релизы](https://github.com/Nigh7man/N7Miner-Releases/releases) · [Последний опубликованный релиз](https://github.com/Nigh7man/N7Miner-Releases/releases/latest)
 
 **Новости и обновления:** [Telegram-канал N7Miner](https://t.me/N7Miner).
 
-Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.139/SHA256SUMS.txt).
+Проверяйте архивы по файлу [SHA256SUMS.txt](https://github.com/Nigh7man/N7Miner-Releases/releases/download/v0.1.140/SHA256SUMS.txt).
 
 # Что умеет N7Miner
 
@@ -78,6 +80,8 @@ n7miner --notui --log-interval 180
 
 ### Windows
 
+В архиве Windows есть готовые BAT-файлы для Kryptex, HeroMiners и LuckyPool: start-kryptex.bat, start-herominers.bat и start-luckypool.bat. Для запуска замените адрес кошелька.
+
 Распакуйте архив, откройте BAT-файл своего пула и укажите адрес кошелька. Можно запустить и вручную:
 
 ~~~bat
@@ -100,7 +104,7 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 ## Хэшрейт на проверенных картах
 
-Актуальные замеры N7Miner 0.1.138 от 15.11.2026:
+Замеры N7Miner 0.1.138 от 15.11.2026 (не новые измерения версии 0.1.140):
 
 | Видеокарта | Хэшрейт | Потребление GPU |
 | --- | ---: | ---: |
@@ -120,9 +124,9 @@ n7miner.exe -a pearlhash -o prl-ru.kryptex.network:7048 -u YOUR_WALLET -w rig01 
 
 Сверьте SHA-256 скачанного архива с `SHA256SUMS.txt` из релиза. Команды для проверки (подставьте имя скачанного файла):
 
-**Windows:** `Get-FileHash .\N7Miner-v0.1.139-universal-windows-x64.zip -Algorithm SHA256`
+**Windows:** `Get-FileHash .\N7Miner-v0.1.140-universal-windows-x64.zip -Algorithm SHA256`
 
-**Linux:** `sha256sum N7Miner-v0.1.139-universal-linux-x64.tar.gz`
+**Linux:** `sha256sum N7Miner-v0.1.140-universal-linux-x64.tar.gz`
 
 Если майнер работает неправильно, [создайте Issue на GitHub](https://github.com/Nigh7man/N7Miner-Releases/issues) или напишите в комментариях [Telegram-канала N7Miner](https://t.me/N7Miner). Укажите версию майнера, модель GPU, драйвер, пул и приложите нужный фрагмент лога. Не публикуйте пароли и приватные ключи.
 
