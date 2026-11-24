@@ -48,12 +48,15 @@ If your GPU or driver does not support `--mclock 405`, replace it with `--mclock
 | --- | --- |
 | **Warm-up: 1 minute** | At startup, the GPU temporarily runs **20 MHz below** its selected offset to reduce the risk of cold-start boost instability. Adjust with `--autooc-warmup`. |
 | **Search** | After every **20 minutes of stable mining**, AutoOC increases the offset by **10 MHz**. |
-| **Testing the new step** | The higher setting is tested for 20 minutes. A single fault during this test immediately steps back by 10 MHz, and the failed value becomes the ceiling. |
+| **Testing the new step** | The higher offset is verified over 20 minutes of stable mining. A first confirmed fault retries the same setting; a second fault at the same offset within three hours lowers it by 10 MHz and excludes the failed value as the ceiling. |
 | **Tuned** | Once the upper limit or a stability ceiling is reached, the current stable offset is saved and used through restarts. |
-| **Faults after tuning** | If a tuned GPU has **3 hardware faults within 24 hours** at the same offset, AutoOC decreases it by 10 MHz and saves a new ceiling. Faults older than 24 hours expire. |
-| **Wrong calculation results** | **3 CPU-verified wrong results within 1 hour** on the same GPU lower Core Offset by 10 MHz. This is separate from the hardware-fault counter. |
+| **Repeated GPU faults** | Two confirmed hardware faults at the same applied offset within three hours lower it by 10 MHz. This applies during warm-up, search, and after tuning. |
+| **Wrong calculation results** | Three CPU-verified wrong results within one hour on a GPU count as one worker fault toward the ordinary retry policy; they do not automatically lower the offset on their own. |
+| **Hard GPU hang** | When the watchdog identifies a hard hang on a specific GPU at a verified offset, AutoOC excludes that offset and higher values on the first incident. Recovery uses a safer saved offset. |
 
-**Search limits:** the lower bound is starting offset −100 MHz; the upper bound is starting offset +150 MHz, or the custom `--autooc-max` setting. A full search may take several hours.
+**Fixes in v0.1.141:** AutoOC enforces the configured --autooc-max on startup and recovery, preserves offset rollbacks after driver resets, and resumes a selective multi-GPU --autooc-reset after restarts. Once the lower limit is reached, no further reduction is possible.
+
+**Search limits:** normally the lower bound is starting offset −100 MHz, and the upper bound is starting offset +150 MHz or custom `--autooc-max`. If a saved cap is below the default floor, the allowed range may extend lower for safe recovery. A full search may take several hours.
 
 Only time actually spent mining counts. Pool disconnects and pauses do not count toward the 20-minute intervals.
 
@@ -135,8 +138,8 @@ Example log lines (illustrative):
 
 ~~~text
 GPU0 autooc core offset +200 -> +210 MHz (20 min stable)
-GPU3 autooc kernel fault 700 at core +170 MHz (2/3)
-GPU3 autooc core offset +170 -> +160 MHz (3 kernel faults; ceiling +170)
+GPU3 autooc kernel fault 700 at core +170 MHz (1/2 in 3h)
+GPU3 autooc core offset +170 -> +160 MHz (2 faults in 3h; ceiling +170)
 GPU1 autooc counted a GPU hang (no completed work) at core +200 MHz
 GPU0 autooc disabled: needs a locked core clock (--cclock or Hive OC core lock)
 autooc reset: every card starts a new search

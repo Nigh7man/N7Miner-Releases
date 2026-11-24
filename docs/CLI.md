@@ -1,6 +1,6 @@
-# N7Miner 0.1.140 — Command Line Reference
+# N7Miner 0.1.141 — Command Line Reference
 
-The v0.1.140 Windows production binary passed --version, --help and CPU-only --self-check --ps 1. Other options retain the published CLI reference; Linux CLI checks have not yet been repeated for this release.
+The v0.1.141 production Windows binary passed --version, --help and CPU-only --self-check --ps 1; no GPU mining was run. The Linux CLI was not rechecked for this release.
 
 Windows: `n7miner.exe --help` / `n7miner.exe --version`.
 Linux: `./n7miner --help` / `./n7miner --version`.
